@@ -1,149 +1,69 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#050505">
-  <meta name="description" content="MILKWAY — TANZIM'S second website. Scientific calculator and number system converter.">
-  <title>MILKWAY — TANZIM'S second website.</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#173b73">
+  <title>GyanPath | MCQ Exam</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="#home" aria-label="MILKWAY home">
-      <span class="brand-mark" aria-hidden="true">✦</span>
-      <span>MILKWAY</span>
-    </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-    <nav id="mainNav" class="nav">
-      <a href="#home">Home</a>
-      <a href="#calculator">Calculator</a>
-      <a href="#converter">Number Converter</a>
-      <a href="#about">About</a>
-    </nav>
+    <div class="brand-mark">G</div>
+    <div>
+      <h1>GyanPath</h1>
+      <p>MCQ Practice Exam</p>
+    </div>
   </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="eyebrow"><span class="status-dot"></span> A LITTLE TOOLKIT FOR BIG IDEAS</div>
-      <h1>MILK<span>WAY</span></h1>
-      <p class="headline">TANZIM'S second website.</p>
-      <p class="hero-copy">Explore mathematics. Understand computing. Calculate with confidence.</p>
-      <div class="hero-actions">
-        <a class="button button-light" href="#calculator">Open calculator <span>↗</span></a>
-        <a class="button button-outline" href="#converter">Convert numbers</a>
-      </div>
-      <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="star star-one">✦</div><div class="star star-two">·</div><div class="star star-three">✧</div>
+  <nav class="quick-nav"><a href="#exam">MCQ Exam</a><a href="#calculator">Calculator</a></nav>
+  <main class="container">
+    <section class="decorative-image" aria-label="Website decorative image">
+      <img src="https://drive.google.com/uc?export=view&id=1fkWH9zYRwPPC8Nl-sbE799-98LXy6tmZ" alt="Decorative banner image" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+      <p class="image-fallback" style="display:none">ছবিটি দেখা যাচ্ছে না। Google Drive-এ ছবির access “Anyone with the link” করে আবার চেষ্টা করুন।</p>
+    </section>
+    <section class="intro">
+      <p class="eyebrow">PRACTICE TEST</p>
+      <h2>Personal MCQ Exam</h2>
+      <p>Answer all 3 questions, then submit to see your result.</p>
     </section>
 
-    <section class="tools-section section-wrap" id="tools">
-      <div class="section-heading">
-        <div><p class="kicker">THE TOOLBOX</p><h2>What do you need<br><span>to work out?</span></h2></div>
-        <p class="section-note">Two useful tools. One simple workspace.</p>
-      </div>
-      <div class="tool-cards">
-        <a class="tool-card" href="#calculator">
-          <div class="card-top"><span class="tool-icon">ƒx</span><span class="card-number">01 / MATH</span></div>
-          <h3>Scientific Calculator</h3>
-          <p>Handle everyday arithmetic and explore scientific functions, from square roots to trigonometry.</p>
-          <div class="tag-row"><span>Arithmetic</span><span>Trigonometry</span><span>Logarithms</span></div>
-          <span class="card-link">Launch calculator <b>↗</b></span>
-        </a>
-        <a class="tool-card" href="#converter">
-          <div class="card-top"><span class="tool-icon tool-icon-binary">0101</span><span class="card-number">02 / COMPUTING</span></div>
-          <h3>Number System Converter</h3>
-          <p>Convert values between binary, decimal, octal and hexadecimal in one place.</p>
-          <div class="tag-row"><span>Base 2</span><span>Base 8</span><span>Base 10</span><span>Base 16</span></div>
-          <span class="card-link">Launch converter <b>↗</b></span>
-        </a>
-      </div>
+    <section class="exam-bar" aria-label="Exam information">
+      <span><strong>Questions:</strong> 3</span>
+      <span><strong>Time:</strong> <span id="timer">05:00</span></span>
     </section>
 
-    <section class="app-section" id="calculator">
-      <div class="section-wrap">
-        <div class="section-heading compact-heading">
-          <div><p class="kicker">TOOL 01</p><h2>Scientific <span>Calculator</span></h2></div>
-          <span class="section-index">CALC / 001</span>
-        </div>
-        <div class="calculator-layout">
-          <div class="calculator panel">
-            <div class="calc-topline"><span> MILKWAY CALC</span><button id="angleMode" class="mode-pill" type="button" title="Toggle degrees/radians">DEG</button></div>
-            <label class="sr-only" for="calcDisplay">Calculator expression</label>
-            <input id="calcDisplay" class="calc-display" type="text" inputmode="decimal" autocomplete="off" placeholder="0" aria-describedby="calcHelp">
-            <div class="calc-result" id="calcResult" aria-live="polite">Ready when you are.</div>
-            <p class="sr-only" id="calcHelp">Enter an expression or use the calculator buttons. Use parentheses for grouping.</p>
-            <div class="keypad" id="keypad">
-              <button class="key key-function" data-action="clear">AC</button>
-              <button class="key key-function" data-insert="(">(</button>
-              <button class="key key-function" data-insert=")">)</button>
-              <button class="key key-function" data-insert="÷">÷</button>
-              <button class="key" data-insert="7">7</button><button class="key" data-insert="8">8</button><button class="key" data-insert="9">9</button><button class="key key-function" data-insert="×">×</button>
-              <button class="key" data-insert="4">4</button><button class="key" data-insert="5">5</button><button class="key" data-insert="6">6</button><button class="key key-function" data-insert="−">−</button>
-              <button class="key" data-insert="1">1</button><button class="key" data-insert="2">2</button><button class="key" data-insert="3">3</button><button class="key key-function" data-insert="+">+</button>
-              <button class="key key-function" data-insert="sin(">sin</button><button class="key key-function" data-insert="cos(">cos</button><button class="key key-function" data-insert="tan(">tan</button><button class="key key-function" data-insert="√(">√</button>
-              <button class="key key-function" data-insert="log(">log</button><button class="key key-function" data-insert="ln(">ln</button><button class="key key-function" data-insert="^">xʸ</button><button class="key key-function" data-insert="π">π</button>
-              <button class="key key-function" data-insert="!">n!</button><button class="key" data-insert="0">0</button><button class="key" data-insert=".">.</button><button class="key key-equals" data-action="evaluate">=</button>
-            </div>
-          </div>
-          <aside class="tool-info">
-            <div class="info-symbol">∑</div><p class="kicker">QUICK GUIDE</p><h3>Math, without<br>the mystery.</h3>
-            <p>Type an expression or tap the keypad. Use parentheses to group operations.</p>
-            <ul><li><code>sin(30)</code> — sine</li><li><code>√(144)</code> — square root</li><li><code>log(100)</code> — base-10 log</li><li><code>2^8</code> — power</li><li><code>5!</code> — factorial</li></ul>
-            <p class="fine-print">Trig functions use the selected angle mode. This tool evaluates supported math expressions locally in your browser.</p>
-          </aside>
-        </div>
+    <form id="quiz-form">
+      <div id="questions"></div>
+      <div class="actions">
+        <button type="submit" id="submit-btn">Submit Exam</button>
+        <button type="button" id="restart-btn" class="secondary">Restart</button>
       </div>
-    </section>
+    </form>
 
-    <section class="section-wrap converter-section" id="converter">
-      <div class="section-heading compact-heading">
-        <div><p class="kicker">TOOL 02</p><h2>Number System <span>Converter</span></h2></div>
-        <span class="section-index">BASE / 002</span>
-      </div>
-      <div class="converter-layout">
-        <div class="converter-panel panel">
-          <label for="sourceBase">Input base</label>
-          <select id="sourceBase">
-            <option value="2">Binary (base 2)</option>
-            <option value="8">Octal (base 8)</option>
-            <option value="10" selected>Decimal (base 10)</option>
-            <option value="16">Hexadecimal (base 16)</option>
-          </select>
-          <label for="sourceNumber">Enter a number</label>
-          <input id="sourceNumber" type="text" inputmode="text" placeholder="e.g. 255" autocomplete="off">
-          <div class="converter-error" id="converterError" aria-live="polite"></div>
-          <button class="button button-light convert-button" id="convertButton" type="button">Convert number <span>→</span></button>
-          <p class="fine-print">Use digits allowed by the selected base. Hexadecimal accepts 0–9 and A–F.</p>
+    <section id="result" class="result hidden" aria-live="polite"></section>
+    <section id="calculator" class="calculator-section">
+      <p class="eyebrow">QUICK TOOL</p>
+      <h2>Calculator</h2>
+      <p class="calc-subtitle">Basic calculations, right here on your website.</p>
+      <div class="calculator">
+        <div class="calc-display"><div id="calc-history" class="calc-history"></div><output id="calc-display">0</output></div>
+        <div class="calc-keys">
+          <button type="button" class="calc-key utility" data-action="clear">AC</button>
+          <button type="button" class="calc-key utility" data-action="backspace">⌫</button>
+          <button type="button" class="calc-key utility" data-action="percent">%</button>
+          <button type="button" class="calc-key operator" data-operator="÷">÷</button>
+          <button type="button" class="calc-key" data-number="7">7</button><button type="button" class="calc-key" data-number="8">8</button><button type="button" class="calc-key" data-number="9">9</button><button type="button" class="calc-key operator" data-operator="×">×</button>
+          <button type="button" class="calc-key" data-number="4">4</button><button type="button" class="calc-key" data-number="5">5</button><button type="button" class="calc-key" data-number="6">6</button><button type="button" class="calc-key operator" data-operator="−">−</button>
+          <button type="button" class="calc-key" data-number="1">1</button><button type="button" class="calc-key" data-number="2">2</button><button type="button" class="calc-key" data-number="3">3</button><button type="button" class="calc-key operator" data-operator="+">+</button>
+          <button type="button" class="calc-key utility" data-action="sign">+/−</button><button type="button" class="calc-key" data-number="0">0</button><button type="button" class="calc-key" data-action="decimal">.</button><button type="button" class="calc-key equals" data-action="equals">=</button>
         </div>
-        <div class="results-panel">
-          <div class="result-heading"><span class="kicker">CONVERSION RESULTS</span><span class="live-indicator">● LOCAL</span></div>
-          <div class="base-result"><div><span class="base-label">BIN</span><span class="base-name">Binary · base 2</span></div><strong id="out2">—</strong><button class="copy-button" data-copy="out2" aria-label="Copy binary result">Copy</button></div>
-          <div class="base-result"><div><span class="base-label">OCT</span><span class="base-name">Octal · base 8</span></div><strong id="out8">—</strong><button class="copy-button" data-copy="out8" aria-label="Copy octal result">Copy</button></div>
-          <div class="base-result"><div><span class="base-label">DEC</span><span class="base-name">Decimal · base 10</span></div><strong id="out10">—</strong><button class="copy-button" data-copy="out10" aria-label="Copy decimal result">Copy</button></div>
-          <div class="base-result"><div><span class="base-label">HEX</span><span class="base-name">Hexadecimal · base 16</span></div><strong id="out16">—</strong><button class="copy-button" data-copy="out16" aria-label="Copy hexadecimal result">Copy</button></div>
-          <p id="conversionExplanation" class="conversion-explanation">Your converted values will appear here.</p>
-        </div>
+        <p id="calc-message" class="calc-message">Works offline once this page is available.</p>
       </div>
     </section>
-
-    <section class="about-section" id="about">
-      <div class="section-wrap about-inner">
-        <p class="kicker">ABOUT THIS PROJECT</p><h2>Built to learn.<br><span>Made to be useful.</span></h2>
-        <p>MILKWAY is TANZIM'S second website: a small math and computing toolkit made as a learning project. The web interface uses HTML, CSS and JavaScript; companion C source files are included to explore the same core ideas in C.</p>
-        <div class="about-stats"><div><strong>02</strong><span>Useful tools</span></div><div><strong>04</strong><span>Number bases</span></div><div><strong>∞</strong><span>Things to learn</span></div></div>
-      </div>
-    </section>
+    <p class="footer-note">Do your best — every step forward counts.</p>
   </main>
 
-  <footer class="site-footer"><a class="brand footer-brand" href="#home"><span class="brand-mark">✦</span><span>MILKWAY</span></a><span>TANZIM'S second website.</span><a href="#home">Back to top ↑</a></footer>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="script.js"></script>
-  <script>
-    if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
-      window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
-    }
-  </script>
 </body>
 </html>
