@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+ <link rel="manifest" href="/C-program-/manifest.json">
+ 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inversion in English Grammar | ইনভার্সন রুল</title>
+<meta name="description" content="English grammar inversion rules with Bangla explanation, diagrams, examples and a practice quiz.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--ink:#17203a;--mute:#5b6479;--line:#dde3ef;--pri:#2b2f77;
+--t:#6d3fc4;--tb:#ece4fb;--a:#0b8f7e;--ab:#dcf4ef;--s:#b46a00;--sb:#fdecd0;--v:#1f5fbf;--vb:#e0ebfb;--ok:#0b8f7e;--no:#c23a3a}
+@media(prefers-color-scheme:dark){:root{--bg:#10142a;--card:#181d38;--ink:#e8ebf7;--mute:#a1a9c4;--line:#2c3356;--pri:#9aa2ff;
+--t:#c4a6ff;--tb:#2d2250;--a:#58d6c3;--ab:#123a38;--s:#ffc46b;--sb:#3b2c10;--v:#8fb7ff;--vb:#16295240;--ok:#58d6c3;--no:#ff8d8d}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hind Siliguri","Noto Sans Bengali",system-ui,sans-serif;font-size:17px;line-height:1.7}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+header{background:var(--pri);color:#fff;padding:44px 0 34px}
+@media(prefers-color-scheme:dark){header{background:#1b2150;color:#fff}}
+h1{margin:0;font-size:clamp(28px,6vw,44px);line-height:1.2}
+header p{margin:10px 0 0;max-width:62ch;opacity:.92}
+nav{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap}
+nav a{display:inline-block;padding:11px 14px;color:var(--ink);text-decoration:none;font-weight:500;font-size:15px}
+nav a:hover,nav a:focus-visible{background:var(--tb);outline:none}
+section{padding:34px 0 6px}
+h2{font-size:26px;margin:0 0 6px;color:var(--pri)}
+h3{font-size:19px;margin:0}
+p{margin:8px 0}
+.bn{color:var(--mute)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+tg,ax,sb,vb{display:inline-block;padding:1px 9px;border-radius:7px;font-weight:600;margin:1px 1px}
+tg{background:var(--tb);color:var(--t)}ax{background:var(--ab);color:var(--a)}
+sb{background:var(--sb);color:var(--s)}vb{background:var(--vb);color:var(--v)}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0 2px;font-size:16px}
+.flow .arrow{color:var(--mute)}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:620px){.cmp{grid-template-columns:1fr}}
+.cmp .card{margin:6px 0}
+.lbl{font-size:14px;font-weight:700;color:var(--mute);margin-bottom:4px}
+.steps{counter-reset:s;list-style:none;padding:0;margin:10px 0}
+.steps li{counter-increment:s;position:relative;padding:8px 0 8px 46px;border-bottom:1px dashed var(--line)}
+.steps li:last-child{border:0}
+.steps li:before{content:counter(s);position:absolute;left:0;top:8px;width:32px;height:32px;border-radius:50%;background:var(--pri);color:#fff;display:grid;place-items:center;font-weight:700}
+@media(prefers-color-scheme:dark){.steps li:before{background:#9aa2ff;color:#10142a}}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:12px 0;overflow:hidden}
+summary{cursor:pointer;padding:14px 18px;font-weight:600;list-style:none;display:flex;gap:10px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary:before{content:"+";font-size:22px;color:var(--pri);width:20px}
+details[open] summary:before{content:"−"}
+summary:focus-visible{outline:3px solid var(--t);outline-offset:-3px}
+.body{padding:0 18px 16px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.chips span{background:var(--tb);color:var(--t);padding:2px 11px;border-radius:99px;font-size:15px;font-weight:500}
+.ex{border-left:4px solid var(--a);padding:4px 0 4px 14px;margin:12px 0}
+.ex .en{font-weight:500}
+.ex .bn{font-size:16px}
+.note{background:var(--sb);border-radius:10px;padding:8px 14px;font-size:16px;margin:10px 0}
+table{width:100%;border-collapse:collapse;font-size:16px;margin:10px 0}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--pri);color:#fff}
+@media(prefers-color-scheme:dark){th{background:#2a3170}}
+.tw{overflow-x:auto}
+.wrong{color:var(--no)}.right{color:var(--ok)}
+s{text-decoration-thickness:2px}
+.q{margin:14px 0}
+.opts{display:grid;gap:8px;margin-top:8px}
+.opts button{font:inherit;text-align:left;padding:9px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.opts button:hover{border-color:var(--pri)}
+.opts button:focus-visible{outline:3px solid var(--t)}
+.opts button.good{background:var(--ab);border-color:var(--ok)}
+.opts button.bad{background:#f8d9d9;border-color:var(--no);color:#7a1f1f}
+.fb{margin-top:8px;font-size:16px;min-height:1px}
+#score{font-weight:700;font-size:19px}
+footer{padding:30px 0 50px;color:var(--mute);text-align:center;font-size:15px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1>Inversion in English Grammar</h1>
+<p>ইনভার্সন মানে বাক্যের স্বাভাবিক ক্রম উল্টে দেওয়া। কখন, কেন এবং কীভাবে করতে হয় — উদাহরণ, বাংলা ব্যাখ্যা ও কুইজসহ।</p>
+</div></header>
+<nav><div class="wrap">
+<a href="#what">Inversion কী?</a><a href="#how">কীভাবে করবেন</a><a href="#rules">রুলসমূহ</a><a href="#dosupport">Do-support</a><a href="#mistakes">সাধারণ ভুল</a><a href="#quiz">কুইজ</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="what">
+<h2>Inversion কী?</h2>
+<p>ইংরেজিতে সাধারণ বাক্যের ক্রম হলো <sb>Subject</sb> আগে, তারপর <vb>Verb</vb>। বিশেষ কিছু শব্দ বা কাঠামো বাক্যের শুরুতে এলে <ax>Auxiliary verb</ax> (বা be/have) <sb>Subject</sb>-এর আগে চলে আসে। একেই বলে <b>Inversion</b>। এতে বাক্যে জোর (emphasis) পড়ে এবং ভাষা আনুষ্ঠানিক বা সাহিত্যিক হয়।</p>
+<div class="cmp">
+<div class="card"><div class="lbl">স্বাভাবিক ক্রম (Normal)</div>
+<div class="flow"><sb>I</sb><ax>have</ax><vb>seen</vb> such a place <span class="arrow">→</span></div>
+<div><b>I have seen</b> such a place.</div>
+<div class="bn">আমি এমন জায়গা দেখেছি।</div></div>
+<div class="card"><div class="lbl">উল্টানো ক্রম (Inverted)</div>
+<div class="flow"><tg>Never</tg><ax>have</ax><sb>I</sb><vb>seen</vb> such a place</div>
+<div><b>Never have I seen</b> such a place.</div>
+<div class="bn">এমন জায়গা আমি কখনো দেখিনি।</div></div>
+</div>
+<div class="card"><div class="lbl">রঙের সংকেত</div>
+<tg>Trigger</tg> বাক্যের শুরুতে আসা বিশেষ শব্দ &nbsp; <ax>Auxiliary</ax> সহায়ক ক্রিয়া &nbsp; <sb>Subject</sb> কর্তা &nbsp; <vb>Verb</vb> মূল ক্রিয়া</div>
+</section>
+
+<section id="how">
+<h2>কীভাবে Inversion করবেন</h2>
+<ol class="steps card">
+<li><b>Trigger চিনুন।</b> বাক্য শুরু হয়েছে <i>Never, Rarely, Hardly, Only after, Not only, So…</i> ইত্যাদি দিয়ে কি না দেখুন।</li>
+<li><b>Auxiliary থাকলে</b> (am/is/are/was/were, have/has/had, will/would, can/could, should, may/might, must) সেটি <b>Subject-এর আগে</b> বসান।</li>
+<li><b>Auxiliary না থাকলে</b> Present-এ <b>do/does</b>, Past-এ <b>did</b> বসান এবং মূল ক্রিয়ার <b>base form</b> (V1) ব্যবহার করুন।</li>
+<li><b>Be verb</b> হলে সরাসরি Subject-এর আগে আসবে (<i>Never was he so happy</i>)।</li>
+</ol>
+<div class="card">
+<div class="lbl">ফর্মুলা</div>
+<div class="flow"><tg>Trigger</tg><span class="arrow">+</span><ax>Auxiliary</ax><span class="arrow">+</span><sb>Subject</sb><span class="arrow">+</span><vb>Verb</vb><span class="arrow">+</span>বাকি অংশ</div>
+</div>
+</section>
+
+<section id="rules">
+<h2>Inversion-এর প্রধান রুলসমূহ</h2>
+<p class="bn">প্রতিটি রুল খুলে দেখুন।</p>
+<div id="rulelist"></div>
+</section>
+
+<section id="dosupport">
+<h2>Do-support: Auxiliary না থাকলে</h2>
+<div class="tw"><table>
+<tr><th>Normal</th><th>Inverted</th><th>বাংলা</th></tr>
+<tr><td>He rarely <b>comes</b> late.</td><td>Rarely <b>does he come</b> late.</td><td>সে খুব কমই দেরিতে আসে।</td></tr>
+<tr><td>I never <b>lied</b> to you.</td><td>Never <b>did I lie</b> to you.</td><td>আমি তোমাকে কখনো মিথ্যা বলিনি।</td></tr>
+<tr><td>She is never late.</td><td>Never <b>is she</b> late.</td><td>সে কখনো দেরি করে না।</td></tr>
+</table></div>
+<div class="note">লক্ষ্য করুন: does/did আসার পর মূল ক্রিয়া <b>base form</b> হয়ে যায় (comes → come, lied → lie)।</div>
+</section>
+
+<section id="mistakes">
+<h2>সাধারণ ভুল</h2>
+<div class="tw"><table>
+<tr><th>ভুল</th><th>সঠিক</th><th>কারণ</th></tr>
+<tr><td class="wrong">Never I have seen it.</td><td class="right">Never have I seen it.</td><td>Trigger-এর পর Auxiliary আগে বসবে।</td></tr>
+<tr><td class="wrong">Rarely does he comes.</td><td class="right">Rarely does he come.</td><td>does-এর পর V1 হবে।</td></tr>
+<tr><td class="wrong">No sooner had he come when…</td><td class="right">No sooner had he come than…</td><td>No sooner-এর সাথে <b>than</b>, Hardly-এর সাথে <b>when</b>।</td></tr>
+<tr><td class="wrong">Here comes he.</td><td class="right">Here he comes.</td><td>Pronoun Subject হলে Here/There-এর পর Inversion হয় না।</td></tr>
+<tr><td class="wrong">Not only he is smart, but…</td><td class="right">Not only is he smart, but…</td><td>Not only শুরুতে থাকলে Inversion বাধ্যতামূলক।</td></tr>
+</table></div>
+</section>
+
+<section id="quiz">
+<h2>নিজেকে যাচাই করুন</h2>
+<p>সঠিক উত্তরে ট্যাপ করুন।</p>
+<div id="quizbox"></div>
+<p id="score" aria-live="polite"></p>
+</section>
+
+</main>
+<footer><div class="wrap">English Grammar Notes · Inversion<br>শেখার জন্য তৈরি — শেয়ার করুন, অনুশীলন করুন।</div></footer>
+
+<script>
+const R=[
+{t:"১. Negative / Limiting Adverb বাক্যের শুরুতে",f:"<tg>Negative word</tg> + <ax>aux</ax> + <sb>subject</sb> + <vb>verb</vb>",
+ w:["Never","Rarely","Seldom","Hardly","Scarcely","Barely","Little","Nowhere","Not once","At no time","In no way","Under no circumstances","On no account"],
+ n:"এই শব্দগুলো নেতিবাচক বা সীমাবদ্ধতা বোঝায়। বাক্যের শুরুতে বসালে জোর দেওয়া হয় এবং Inversion বাধ্যতামূলক।",
+ e:[["<b>Never have I seen</b> such a beautiful place.","এমন সুন্দর জায়গা আমি কখনো দেখিনি।"],
+ ["<b>Rarely does he arrive</b> on time.","সে খুব কমই সময়মতো আসে।"],
+ ["<b>Little did I know</b> about the surprise.","আমি সারপ্রাইজটার কথা কিছুই জানতাম না।"],
+ ["<b>Under no circumstances should you open</b> this door.","কোনো অবস্থাতেই এই দরজা খোলা উচিত নয়।"]],o:true},
+{t:"২. Hardly … when / No sooner … than",f:"<tg>Hardly / Scarcely</tg> + <ax>had</ax> + <sb>S</sb> + V3 + <b>when</b> + Past Simple<br><tg>No sooner</tg> + <ax>had</ax> + <sb>S</sb> + V3 + <b>than</b> + Past Simple",
+ n:"দুটি কাজ প্রায় একসাথে ঘটলে ব্যবহার হয়। প্রথম অংশে Past Perfect, দ্বিতীয় অংশে Past Simple। Hardly/Scarcely-এর সাথে <b>when</b>, No sooner-এর সাথে <b>than</b>।",
+ e:[["<b>Hardly had she left</b> when the phone rang.","সে বের হতে না হতেই ফোন বেজে উঠল।"],
+ ["<b>No sooner had he sat</b> down than the bell rang.","সে বসতে না বসতেই ঘণ্টা বাজল।"]]},
+{t:"৩. Not only … but also / Not until / Only + adverbial",f:"<tg>Not only</tg> + <ax>aux</ax> + <sb>S</sb> + <vb>V</vb>, but … also …<br><tg>Not until / Only after / Only when / Only then</tg> + <ax>aux</ax> + <sb>S</sb> + <vb>V</vb>",
+ w:["Not only","Not until","Only after","Only when","Only if","Only by","Only then"],
+ n:"Not only-এর Inversion শুধু প্রথম অংশে হয়। Not until / Only after-এর ক্ষেত্রে Inversion হয় <b>মূল বাক্যাংশে</b>, শর্তাংশে নয়।",
+ e:[["<b>Not only did she sing</b>, but she also danced.","সে শুধু গান গায়নি, নাচেও করেছে।"],
+ ["<b>Not until the exam ended did she relax</b>.","পরীক্ষা শেষ হওয়ার আগে পর্যন্ত সে স্বস্তি পায়নি।"],
+ ["<b>Only after he apologized did she forgive</b> him.","সে ক্ষমা চাওয়ার পরেই কেবল তাকে মাফ করল।"]]},
+{t:"৪. So / Such … that",f:"<tg>So + adjective</tg> + <ax>be</ax> + <sb>S</sb> + that …<br><tg>Such + be</tg> + <sb>S</sb> + that …",
+ n:"ফলাফল বোঝাতে। So/Such শুরুতে এনে Inversion করলে বাক্য শক্তিশালী ও সাহিত্যিক হয়।",
+ e:[["<b>So tired was she</b> that she fell asleep at once.","সে এতটাই ক্লান্ত ছিল যে সঙ্গে সঙ্গে ঘুমিয়ে পড়ল।"],
+ ["<b>Such was his anger</b> that he left the room.","তার রাগ এতই বেশি ছিল যে সে ঘর ছেড়ে চলে গেল।"]]},
+{t:"৫. If ছাড়া Conditional (Had / Were / Should)",f:"<tg>Had</tg> + <sb>S</sb> + V3 … (If + S + had + V3)<br><tg>Were</tg> + <sb>S</sb> … (If + S + were …)<br><tg>Should</tg> + <sb>S</sb> + V1 … (If + S + should …)",
+ n:"<b>if</b> বাদ দিয়ে Auxiliary-কে Subject-এর আগে এনে Conditional বানানো যায়। এটি আনুষ্ঠানিক ভাষায় বেশি ব্যবহৃত হয়।",
+ e:[["<b>Had I known</b>, I would have helped. (= If I had known…)","আমি জানলে সাহায্য করতাম।"],
+ ["<b>Were I</b> you, I would accept the offer. (= If I were you…)","আমি তোমার জায়গায় হলে প্রস্তাবটা নিতাম।"],
+ ["<b>Should you need</b> help, call me. (= If you should need…)","তোমার সাহায্য লাগলে আমাকে ফোন করো।"]]},
+{t:"৬. So / Neither / Nor দিয়ে সমর্থন",f:"<tg>So</tg> + <ax>aux</ax> + <sb>S</sb> (হ্যাঁ-বাচক)<br><tg>Neither / Nor</tg> + <ax>aux</ax> + <sb>S</sb> (না-বাচক)",
+ n:"আগের বাক্যের Auxiliary-এর সাথে মিল রেখে একই কথা বলতে। আগের বাক্যে Auxiliary না থাকলে do/does/did আসে।",
+ e:[["“I love tea.” — <b>So do I</b>.","“আমি চা ভালোবাসি।” — আমিও।"],
+ ["“She can’t swim.” — <b>Neither can he</b>.","“সে সাঁতার জানে না।” — সেও জানে না।"],
+ ["He didn’t come, <b>nor did she</b>.","সে আসেনি, সেও আসেনি।"]]},
+{t:"৭. Here / There / স্থান-দিকবাচক শব্দ + ক্রিয়া",f:"<tg>Here / There / Down / Up / Away</tg> + <vb>verb</vb> + <sb>noun subject</sb>",
+ n:"এখানে Subject যদি <b>Noun</b> হয় তবে Inversion হয়। Subject <b>Pronoun</b> হলে হয় না (<i>Here he comes</i>)। এই ধরনের বাক্য গল্প ও বর্ণনায় বেশি দেখা যায়।",
+ e:[["<b>Here comes the bus</b>.","ওই যে বাস আসছে।"],
+ ["<b>Down came the rain</b>.","ঝমঝম করে বৃষ্টি নামল।"],
+ ["<b>There goes my chance</b>.","আমার সুযোগটা চলে গেল।"]]}
+];
+const L=document.getElementById("rulelist");
+R.forEach(r=>{
+ let h=`<details${r.o?" open":""}><summary>${r.t}</summary><div class="body"><div class="card" style="margin-top:0"><div class="lbl">গঠন</div><div>${r.f}</div></div>`;
+ if(r.w)h+=`<div class="chips">${r.w.map(x=>`<span>${x}</span>`).join("")}</div>`;
+ h+=`<p class="bn">${r.n}</p>`;
+ r.e.forEach(e=>h+=`<div class="ex"><div class="en">${e[0]}</div><div class="bn">${e[1]}</div></div>`);
+ L.insertAdjacentHTML("beforeend",h+"</div></details>");
+});
+const Q=[
+["Never ___ such a beautiful place.",["I have seen","have I seen","I saw"],1,"Never শুরুতে থাকলে Auxiliary আগে আসে: Never have I seen।"],
+["Rarely ___ late.",["he comes","comes he","does he come"],2,"Auxiliary না থাকলে does লাগে এবং ক্রিয়া V1 হয়।"],
+["No sooner had she left ___ the phone rang.",["when","than","then"],1,"No sooner-এর সাথে than বসে।"],
+["___ you need help, call me.",["Should","Would","Do"],0,"Should you need = If you should need।"],
+["So tired ___ that she slept at once.",["she was","was she","did she"],1,"So + adjective শুরুতে থাকলে be verb Subject-এর আগে আসে।"],
+["“I love tea.” — “___ I.”",["So love","So do","Do so"],1,"আগের বাক্যে love আছে, তাই So do I।"]
+];
+const B=document.getElementById("quizbox"),S=document.getElementById("score");let sc=0,done=0;
+Q.forEach((q,i)=>{
+ const d=document.createElement("div");d.className="card q";
+ d.innerHTML=`<b>${i+1}. ${q[0]}</b><div class="opts"></div><div class="fb"></div>`;
+ const o=d.querySelector(".opts"),fb=d.querySelector(".fb");
+ q[1].forEach((t,k)=>{const b=document.createElement("button");b.textContent=t;
+  b.onclick=()=>{if(d.dataset.d)return;d.dataset.d=1;done++;
+   const bs=o.querySelectorAll("button");bs[q[2]].classList.add("good");
+   if(k===q[2]){sc++;fb.innerHTML="✅ সঠিক! "+q[3]}else{b.classList.add("bad");fb.innerHTML="❌ ভুল। "+q[3]}
+   if(done===Q.length)S.textContent=`আপনার স্কোর: ${sc} / ${Q.length}`};
+  o.appendChild(b)});
+ B.appendChild(d)});
+</script>
+<!-- আকর্ষণীয় কার্ড ডিজাইন -->
+<div style="
+    max-width: 600px; 
+    margin: 30px auto; 
+    padding: 25px; 
+    border-radius: 16px; 
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+    color: white; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
+    font-family: Arial, sans-serif; 
+    text-align: center;">
+
+    <div style="font-size: 48px; margin-bottom: 10px;">📄</div>
+    <h2 style="margin: 0 0 10px 0; font-size: 24px;">English Word Guide</h2>
+    <p style="opacity: 0.9; margin-bottom: 25px;">IUT প্রস্তুতি ও ভোকাবুলারির জন্য প্রয়োজনীয় শব্দাবলি</p>
+
+    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <!-- পিডিএফ দেখার বাটন -->
+        <a href="English_word.pdf" target="_blank" style="
+            padding: 12px 24px; 
+            background-color: #ffffff; 
+            color: #764ba2; 
+            text-decoration: none; 
+            font-weight: bold; 
+            border-radius: 8px; 
+            transition: 0.3s; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            👁️ PDF দেখুন
+        </a>
+
+        <!-- পিডিএফ ডাউনলোড করার বাটন -->
+        <a href="English_word.pdf" download style="
+            padding: 12px 24px; 
+            background-color: #ff758c; 
+            color: white; 
+            text-decoration: none; 
+            font-weight: bold; 
+            border-radius: 8px; 
+            transition: 0.3s; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            ⬇️ ডাউনলোড করুন
+        </a>
+    </div>
+</div>
+
+
+ <!-- আকর্ষণীয় কার্ড ডিজাইন -->
+<div style="
+    max-width: 600px; 
+    margin: 30px auto; 
+    padding: 25px; 
+    border-radius: 16px; 
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+    color: white; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
+    font-family: Arial, sans-serif; 
+    text-align: center;">
+
+    <div style="font-size: 48px; margin-bottom: 10px;">📄</div>
+    <h2 style="margin: 0 0 10px 0; font-size: 24px;">English Word With Meaning</h2>
+    <p style="opacity: 0.9; margin-bottom: 25px;"> ভোকাবুলারির জন্য প্রয়োজনীয় শব্দাবলি</p>
+
+    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <!-- পিডিএফ দেখার বাটন -->
+        <a href="English_word2.pdf" target="_blank" style="
+            padding: 12px 24px; 
+            background-color: #ffffff; 
+            color: #764ba2; 
+            text-decoration: none; 
+            font-weight: bold; 
+            border-radius: 8px; 
+            transition: 0.3s; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            👁️ PDF দেখুন
+        </a>
+
+        <!-- পিডিএফ ডাউনলোড করার বাটন -->
+        <a href="English_word2.pdf" download style="
+            padding: 12px 24px; 
+            background-color: #ff758c; 
+            color: white; 
+            text-decoration: none; 
+            font-weight: bold; 
+            border-radius: 8px; 
+            transition: 0.3s; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            ⬇️ ডাউনলোড করুন
+        </a>
+    </div>
+</div>
+
+  <!-- আকর্ষণীয় কার্ড ডিজাইন -->
+<div style="
+    max-width: 600px; 
+    margin: 30px auto; 
+    padding: 25px; 
+    border-radius: 16px; 
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+    color: white; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
+    font-family: Arial, sans-serif; 
+    text-align: center;">
+
+    <div style="font-size: 48px; margin-bottom: 10px;">📄</div>
+    <h2 style="margin: 0 0 10px 0; font-size: 24px;">English Word With Meaning</h2>
+    <p style="opacity: 0.9; margin-bottom: 25px;"> ভোকাবুলারির জন্য প্রয়োজনীয় শব্দাবলি</p>
+
+    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <!-- পিডিএফ দেখার বাটন -->
+        <a href="English_word3.pdf" target="_blank" style="
+            padding: 12px 24px; 
+            background-color: #ffffff; 
+            color: #764ba2; 
+            text-decoration: none; 
+            font-weight: bold; 
+            border-radius: 8px; 
+            transition: 0.3s; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            👁️ PDF দেখুন
+        </a>
+
+        <!-- পিডিএফ ডাউনলোড করার বাটন -->
+        <a href="English_word3.pdf" download style="
+            padding: 12px 24px; 
+            background-color: #ff758c; 
+            color: white; 
+            text-decoration: none; 
+            font-weight: bold; 
+            border-radius: 8px; 
+            transition: 0.3s; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            ⬇️ ডাউনলোড করুন
+        </a>
+    </div>
+</div>
+
+ 
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register(
+        "/C-program-/sw.js",
+        { scope: "/C-program-/" }
+      ).catch((error) => {
+        console.error("Service Worker registration failed:", error);
+      });
+    });
+  }
+</script>
+ 
+ 
+</body>
+  </html>
+  
