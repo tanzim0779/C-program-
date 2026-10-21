@@ -1,383 +1,295 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en" data-theme="midnight">
 <head>
- <link rel="manifest" href="/C-program-/manifest.json">
- 
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Inversion in English Grammar | ইনভার্সন রুল</title>
-<meta name="description" content="English grammar inversion rules with Bangla explanation, diagrams, examples and a practice quiz.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Toolbox Pro – Calculator, Converter, Detector, Search &amp; Timer</title>
+<meta name="description" content="Mobile-first toolbox: calculator, number converter, object detector, YouTube and Google search, exam timer.">
+<meta property="og:title" content="Toolbox Pro"><meta property="og:description" content="Premium all-in-one student toolbox.">
+<meta name="theme-color" content="#0b1230">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235cc8ff'/%3E%3Cpath d='M9 16l5 5 9-10' stroke='%2306122b' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Sora:wght@600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f5f7fb;--card:#fff;--ink:#17203a;--mute:#5b6479;--line:#dde3ef;--pri:#2b2f77;
---t:#6d3fc4;--tb:#ece4fb;--a:#0b8f7e;--ab:#dcf4ef;--s:#b46a00;--sb:#fdecd0;--v:#1f5fbf;--vb:#e0ebfb;--ok:#0b8f7e;--no:#c23a3a}
-@media(prefers-color-scheme:dark){:root{--bg:#10142a;--card:#181d38;--ink:#e8ebf7;--mute:#a1a9c4;--line:#2c3356;--pri:#9aa2ff;
---t:#c4a6ff;--tb:#2d2250;--a:#58d6c3;--ab:#123a38;--s:#ffc46b;--sb:#3b2c10;--v:#8fb7ff;--vb:#16295240;--ok:#58d6c3;--no:#ff8d8d}}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hind Siliguri","Noto Sans Bengali",system-ui,sans-serif;font-size:17px;line-height:1.7}
-.wrap{max-width:860px;margin:0 auto;padding:0 18px}
-header{background:var(--pri);color:#fff;padding:44px 0 34px}
-@media(prefers-color-scheme:dark){header{background:#1b2150;color:#fff}}
-h1{margin:0;font-size:clamp(28px,6vw,44px);line-height:1.2}
-header p{margin:10px 0 0;max-width:62ch;opacity:.92}
-nav{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap}
-nav a{display:inline-block;padding:11px 14px;color:var(--ink);text-decoration:none;font-weight:500;font-size:15px}
-nav a:hover,nav a:focus-visible{background:var(--tb);outline:none}
-section{padding:34px 0 6px}
-h2{font-size:26px;margin:0 0 6px;color:var(--pri)}
-h3{font-size:19px;margin:0}
-p{margin:8px 0}
-.bn{color:var(--mute)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
-tg,ax,sb,vb{display:inline-block;padding:1px 9px;border-radius:7px;font-weight:600;margin:1px 1px}
-tg{background:var(--tb);color:var(--t)}ax{background:var(--ab);color:var(--a)}
-sb{background:var(--sb);color:var(--s)}vb{background:var(--vb);color:var(--v)}
-.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0 2px;font-size:16px}
-.flow .arrow{color:var(--mute)}
-.cmp{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:620px){.cmp{grid-template-columns:1fr}}
-.cmp .card{margin:6px 0}
-.lbl{font-size:14px;font-weight:700;color:var(--mute);margin-bottom:4px}
-.steps{counter-reset:s;list-style:none;padding:0;margin:10px 0}
-.steps li{counter-increment:s;position:relative;padding:8px 0 8px 46px;border-bottom:1px dashed var(--line)}
-.steps li:last-child{border:0}
-.steps li:before{content:counter(s);position:absolute;left:0;top:8px;width:32px;height:32px;border-radius:50%;background:var(--pri);color:#fff;display:grid;place-items:center;font-weight:700}
-@media(prefers-color-scheme:dark){.steps li:before{background:#9aa2ff;color:#10142a}}
-details{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:12px 0;overflow:hidden}
-summary{cursor:pointer;padding:14px 18px;font-weight:600;list-style:none;display:flex;gap:10px;align-items:center}
-summary::-webkit-details-marker{display:none}
-summary:before{content:"+";font-size:22px;color:var(--pri);width:20px}
-details[open] summary:before{content:"−"}
-summary:focus-visible{outline:3px solid var(--t);outline-offset:-3px}
-.body{padding:0 18px 16px}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
-.chips span{background:var(--tb);color:var(--t);padding:2px 11px;border-radius:99px;font-size:15px;font-weight:500}
-.ex{border-left:4px solid var(--a);padding:4px 0 4px 14px;margin:12px 0}
-.ex .en{font-weight:500}
-.ex .bn{font-size:16px}
-.note{background:var(--sb);border-radius:10px;padding:8px 14px;font-size:16px;margin:10px 0}
-table{width:100%;border-collapse:collapse;font-size:16px;margin:10px 0}
-th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
-th{background:var(--pri);color:#fff}
-@media(prefers-color-scheme:dark){th{background:#2a3170}}
-.tw{overflow-x:auto}
-.wrong{color:var(--no)}.right{color:var(--ok)}
-s{text-decoration-thickness:2px}
-.q{margin:14px 0}
-.opts{display:grid;gap:8px;margin-top:8px}
-.opts button{font:inherit;text-align:left;padding:9px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
-.opts button:hover{border-color:var(--pri)}
-.opts button:focus-visible{outline:3px solid var(--t)}
-.opts button.good{background:var(--ab);border-color:var(--ok)}
-.opts button.bad{background:#f8d9d9;border-color:var(--no);color:#7a1f1f}
-.fb{margin-top:8px;font-size:16px;min-height:1px}
-#score{font-weight:700;font-size:19px}
-footer{padding:30px 0 50px;color:var(--mute);text-align:center;font-size:15px}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* ===== 1. THEME VARIABLES ===== */
+[data-theme=midnight]{--b1:#0b1230;--b2:#16307a;--b3:#0e8fb3;--sf:rgba(255,255,255,.08);--bd:rgba(255,255,255,.17);--ac:#5cc8ff;--tx:#eef3ff;--mu:#a9b7d6;--on:#06122b}
+[data-theme=royal]{--b1:#1b0b3a;--b2:#4c1d95;--b3:#c026d3;--sf:rgba(255,255,255,.08);--bd:rgba(255,255,255,.17);--ac:#d8a8ff;--tx:#f6eeff;--mu:#c9b6e6;--on:#1b0b3a}
+[data-theme=emerald]{--b1:#031a14;--b2:#046a4f;--b3:#14b88a;--sf:rgba(255,255,255,.08);--bd:rgba(255,255,255,.17);--ac:#5ff0bf;--tx:#eafff7;--mu:#9fd6c3;--on:#03211a}
+[data-theme=sunset]{--b1:#2a1205;--b2:#9a3412;--b3:#f59e0b;--sf:rgba(255,255,255,.09);--bd:rgba(255,255,255,.18);--ac:#ffcf5c;--tx:#fff6e6;--mu:#e8c9a0;--on:#2a1205}
+[data-theme=light]{--b1:#eef3ff;--b2:#c7d7ff;--b3:#ffd1ec;--sf:rgba(255,255,255,.7);--bd:rgba(30,40,90,.16);--ac:#3a52e0;--tx:#151c3a;--mu:#55607f;--on:#fff}
+/* ===== 2. BASE ===== */
+*{box-sizing:border-box;margin:0}
+body{font:15px/1.5 Inter,system-ui,sans-serif;color:var(--tx);background:linear-gradient(135deg,var(--b1),var(--b2));min-height:100vh;overflow-x:hidden}
+h1,h2,b{font-family:Sora,system-ui,sans-serif}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden}
+.bg i{position:absolute;width:55vmax;height:55vmax;border-radius:50%;filter:blur(70px);opacity:.42;animation:fl 22s ease-in-out infinite alternate;will-change:transform}
+.bg i:nth-child(1){background:var(--b3);top:-20vmax;left:-15vmax}
+.bg i:nth-child(2){background:var(--ac);bottom:-25vmax;right:-15vmax;opacity:.28;animation-delay:-8s}
+.bg i:nth-child(3){background:var(--b2);top:30%;left:35%;animation-delay:-14s}
+@keyframes fl{to{transform:translate3d(8vmax,6vmax,0) scale(1.15)}}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.wrap{max-width:900px;margin:0 auto;padding:0 14px 30px}
+/* ===== 3. COMPONENTS ===== */
+.glass{background:var(--sf);border:1px solid var(--bd);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:22px;box-shadow:0 10px 40px rgba(0,0,0,.22)}
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--sf);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--bd)}
+.top h1{font-size:18px;flex:1}
+.ib{width:42px;height:42px;display:grid;place-items:center;border-radius:14px;border:1px solid var(--bd);background:var(--sf);color:var(--tx);cursor:pointer}
+.btn{border:0;border-radius:14px;padding:11px 16px;background:var(--ac);color:var(--on);font:600 14px Inter,sans-serif;cursor:pointer;transition:transform .1s,filter .2s}
+.btn:hover{filter:brightness(1.1)}.btn:active{transform:scale(.94)}
+.btn.g{background:var(--sf);color:var(--tx);border:1px solid var(--bd)}.btn.sm{padding:7px 11px;font-size:12px}
+input{width:100%;background:rgba(127,127,127,.13);border:1px solid var(--bd);border-radius:14px;padding:12px;color:var(--tx);font:inherit}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0;align-items:center}.row>input{flex:1;min-width:0}
+.tabs{position:relative;display:grid;grid-template-columns:1fr 1fr;padding:5px;margin:16px 0}
+.hl{position:absolute;top:5px;bottom:5px;left:5px;width:calc(50% - 5px);border-radius:18px;background:var(--ac);transition:transform .35s cubic-bezier(.3,1.2,.4,1)}
+.tabs[data-i="1"] .hl{transform:translateX(100%)}
+.tabs button{position:relative;background:none;border:0;color:var(--tx);font:600 15px Sora,sans-serif;padding:12px;cursor:pointer;transition:color .3s}
+.tabs button.on{color:var(--on)}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.opt{text-align:left;cursor:pointer;color:var(--tx);padding:16px;font:inherit;transition:transform .2s,border-color .2s}
+.opt:hover{transform:translateY(-3px)}.opt.on{border-color:var(--ac);box-shadow:0 0 0 1px var(--ac),0 10px 40px rgba(0,0,0,.3)}
+.opt b{display:block;margin-top:6px}.opt span{color:var(--mu);font-size:13px}.opt svg{color:var(--ac)}
+#tool{margin:16px 0;padding:18px;animation:in .4s}
+@keyframes in{from{opacity:0;transform:translateY(12px)}}
+.mono,.disp,.keys .btn{font-family:"JetBrains Mono",monospace}
+.disp{font-size:22px;text-align:right}.res{text-align:right;color:var(--ac);font:500 28px "JetBrains Mono",monospace;margin:6px 0 10px;overflow-wrap:anywhere}
+.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:8px}.keys .btn{padding:14px 0;font-size:17px}
+.hint,.err{color:var(--mu);font-size:13px;margin:6px 0}.err{color:#ff7b7b}
+.hist button{display:block;width:100%;text-align:right;background:none;border:0;border-bottom:1px solid var(--bd);color:var(--tx);padding:7px 0;font:13px "JetBrains Mono",monospace;cursor:pointer}
+.stage{position:relative;border-radius:18px;overflow:hidden;background:#000;min-height:160px}.stage video{width:100%;display:block}.stage canvas{position:absolute;inset:0;width:100%;height:100%}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin-top:12px}
+.vc{cursor:pointer;border-radius:16px;overflow:hidden;background:var(--sf);border:1px solid var(--bd);text-align:left;color:var(--tx);font:inherit;padding:0;transition:transform .2s}.vc:hover{transform:translateY(-3px)}
+.vc img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}.vc div{padding:8px 10px;font-size:13px}.vc small{color:var(--mu)}
+.chips button{margin:0 6px 6px 0;border-radius:99px;border:1px solid var(--bd);background:var(--sf);color:var(--tx);padding:4px 12px;cursor:pointer}
+.player{aspect-ratio:16/9;width:100%;border:0;border-radius:16px;margin-top:10px}.player.wide{width:min(100vw - 20px,1100px);position:relative;left:50%;transform:translateX(-50%)}
+.sk{height:90px;border-radius:14px;background:linear-gradient(90deg,var(--sf),var(--bd),var(--sf));background-size:200% 100%;animation:sh 1.2s infinite}@keyframes sh{to{background-position:-200% 0}}
+.ring{display:block;margin:10px auto;width:min(70vw,240px)}.ring text{fill:var(--tx);font:500 34px "JetBrains Mono",monospace}
+.tm{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.flash{animation:fs .5s 3}@keyframes fs{50%{background:var(--ac)}}
+.gcse-search{min-height:80px}.gsc-control-cse,.gsc-control-cse *{background:transparent!important;border-color:var(--bd)!important;color:var(--tx)!important}
+#toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,80px);background:var(--ac);color:var(--on);padding:10px 18px;border-radius:14px;font-weight:600;opacity:0;transition:.3s;z-index:60;max-width:90vw}#toast.on{transform:translate(-50%,0);opacity:1}
+#pal{position:absolute;right:12px;top:58px;padding:10px;display:none;gap:8px;z-index:30}#pal.on{display:flex}#pal button{width:30px;height:30px;border-radius:50%;border:2px solid var(--bd);cursor:pointer}
+#splash{position:fixed;inset:0;z-index:99;display:grid;place-items:center;background:var(--b1);transition:opacity .5s}#splash.off{opacity:0;pointer-events:none}
+#splash i{width:54px;height:54px;border-radius:16px;background:var(--ac);animation:sp 1s ease-in-out infinite alternate}@keyframes sp{to{transform:rotate(90deg) scale(.7)}}
+footer{text-align:center;color:var(--mu);font-size:12px;padding:10px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<header><div class="wrap">
-<h1>Inversion in English Grammar</h1>
-<p>ইনভার্সন মানে বাক্যের স্বাভাবিক ক্রম উল্টে দেওয়া। কখন, কেন এবং কীভাবে করতে হয় — উদাহরণ, বাংলা ব্যাখ্যা ও কুইজসহ।</p>
-</div></header>
-<nav><div class="wrap">
-<a href="#what">Inversion কী?</a><a href="#how">কীভাবে করবেন</a><a href="#rules">রুলসমূহ</a><a href="#dosupport">Do-support</a><a href="#mistakes">সাধারণ ভুল</a><a href="#quiz">কুইজ</a>
-</div></nav>
-
+<div class="bg" aria-hidden="true"><i></i><i></i><i></i></div>
+<div id="splash"><i></i></div>
+<header class="top">
+ <h1>Toolbox Pro</h1>
+ <button class="ib" id="inst" hidden aria-label="Install app" title="Install">⬇</button>
+ <button class="ib" id="pb" aria-label="Choose palette" title="Palette (T)"></button>
+ <button class="ib" id="fs" aria-label="Fullscreen" title="Fullscreen"></button>
+</header>
+<div id="pal" class="glass" role="menu"></div>
 <main class="wrap">
-
-<section id="what">
-<h2>Inversion কী?</h2>
-<p>ইংরেজিতে সাধারণ বাক্যের ক্রম হলো <sb>Subject</sb> আগে, তারপর <vb>Verb</vb>। বিশেষ কিছু শব্দ বা কাঠামো বাক্যের শুরুতে এলে <ax>Auxiliary verb</ax> (বা be/have) <sb>Subject</sb>-এর আগে চলে আসে। একেই বলে <b>Inversion</b>। এতে বাক্যে জোর (emphasis) পড়ে এবং ভাষা আনুষ্ঠানিক বা সাহিত্যিক হয়।</p>
-<div class="cmp">
-<div class="card"><div class="lbl">স্বাভাবিক ক্রম (Normal)</div>
-<div class="flow"><sb>I</sb><ax>have</ax><vb>seen</vb> such a place <span class="arrow">→</span></div>
-<div><b>I have seen</b> such a place.</div>
-<div class="bn">আমি এমন জায়গা দেখেছি।</div></div>
-<div class="card"><div class="lbl">উল্টানো ক্রম (Inverted)</div>
-<div class="flow"><tg>Never</tg><ax>have</ax><sb>I</sb><vb>seen</vb> such a place</div>
-<div><b>Never have I seen</b> such a place.</div>
-<div class="bn">এমন জায়গা আমি কখনো দেখিনি।</div></div>
-</div>
-<div class="card"><div class="lbl">রঙের সংকেত</div>
-<tg>Trigger</tg> বাক্যের শুরুতে আসা বিশেষ শব্দ &nbsp; <ax>Auxiliary</ax> সহায়ক ক্রিয়া &nbsp; <sb>Subject</sb> কর্তা &nbsp; <vb>Verb</vb> মূল ক্রিয়া</div>
-</section>
-
-<section id="how">
-<h2>কীভাবে Inversion করবেন</h2>
-<ol class="steps card">
-<li><b>Trigger চিনুন।</b> বাক্য শুরু হয়েছে <i>Never, Rarely, Hardly, Only after, Not only, So…</i> ইত্যাদি দিয়ে কি না দেখুন।</li>
-<li><b>Auxiliary থাকলে</b> (am/is/are/was/were, have/has/had, will/would, can/could, should, may/might, must) সেটি <b>Subject-এর আগে</b> বসান।</li>
-<li><b>Auxiliary না থাকলে</b> Present-এ <b>do/does</b>, Past-এ <b>did</b> বসান এবং মূল ক্রিয়ার <b>base form</b> (V1) ব্যবহার করুন।</li>
-<li><b>Be verb</b> হলে সরাসরি Subject-এর আগে আসবে (<i>Never was he so happy</i>)।</li>
-</ol>
-<div class="card">
-<div class="lbl">ফর্মুলা</div>
-<div class="flow"><tg>Trigger</tg><span class="arrow">+</span><ax>Auxiliary</ax><span class="arrow">+</span><sb>Subject</sb><span class="arrow">+</span><vb>Verb</vb><span class="arrow">+</span>বাকি অংশ</div>
-</div>
-</section>
-
-<section id="rules">
-<h2>Inversion-এর প্রধান রুলসমূহ</h2>
-<p class="bn">প্রতিটি রুল খুলে দেখুন।</p>
-<div id="rulelist"></div>
-</section>
-
-<section id="dosupport">
-<h2>Do-support: Auxiliary না থাকলে</h2>
-<div class="tw"><table>
-<tr><th>Normal</th><th>Inverted</th><th>বাংলা</th></tr>
-<tr><td>He rarely <b>comes</b> late.</td><td>Rarely <b>does he come</b> late.</td><td>সে খুব কমই দেরিতে আসে।</td></tr>
-<tr><td>I never <b>lied</b> to you.</td><td>Never <b>did I lie</b> to you.</td><td>আমি তোমাকে কখনো মিথ্যা বলিনি।</td></tr>
-<tr><td>She is never late.</td><td>Never <b>is she</b> late.</td><td>সে কখনো দেরি করে না।</td></tr>
-</table></div>
-<div class="note">লক্ষ্য করুন: does/did আসার পর মূল ক্রিয়া <b>base form</b> হয়ে যায় (comes → come, lied → lie)।</div>
-</section>
-
-<section id="mistakes">
-<h2>সাধারণ ভুল</h2>
-<div class="tw"><table>
-<tr><th>ভুল</th><th>সঠিক</th><th>কারণ</th></tr>
-<tr><td class="wrong">Never I have seen it.</td><td class="right">Never have I seen it.</td><td>Trigger-এর পর Auxiliary আগে বসবে।</td></tr>
-<tr><td class="wrong">Rarely does he comes.</td><td class="right">Rarely does he come.</td><td>does-এর পর V1 হবে।</td></tr>
-<tr><td class="wrong">No sooner had he come when…</td><td class="right">No sooner had he come than…</td><td>No sooner-এর সাথে <b>than</b>, Hardly-এর সাথে <b>when</b>।</td></tr>
-<tr><td class="wrong">Here comes he.</td><td class="right">Here he comes.</td><td>Pronoun Subject হলে Here/There-এর পর Inversion হয় না।</td></tr>
-<tr><td class="wrong">Not only he is smart, but…</td><td class="right">Not only is he smart, but…</td><td>Not only শুরুতে থাকলে Inversion বাধ্যতামূলক।</td></tr>
-</table></div>
-</section>
-
-<section id="quiz">
-<h2>নিজেকে যাচাই করুন</h2>
-<p>সঠিক উত্তরে ট্যাপ করুন।</p>
-<div id="quizbox"></div>
-<p id="score" aria-live="polite"></p>
-</section>
-
+ <div class="tabs glass" id="tabs" role="tablist"><span class="hl"></span></div>
+ <div class="opts" id="opts"></div>
+ <section class="glass" id="tool" aria-live="polite"></section>
 </main>
-<footer><div class="wrap">English Grammar Notes · Inversion<br>শেখার জন্য তৈরি — শেয়ার করুন, অনুশীলন করুন।</div></footer>
-
+<footer>Toolbox Pro v1.0 · Shortcuts: 1/2 tabs, Q/W/E tools, T theme, ? help</footer>
+<div id="toast" role="status"></div>
 <script>
-const R=[
-{t:"১. Negative / Limiting Adverb বাক্যের শুরুতে",f:"<tg>Negative word</tg> + <ax>aux</ax> + <sb>subject</sb> + <vb>verb</vb>",
- w:["Never","Rarely","Seldom","Hardly","Scarcely","Barely","Little","Nowhere","Not once","At no time","In no way","Under no circumstances","On no account"],
- n:"এই শব্দগুলো নেতিবাচক বা সীমাবদ্ধতা বোঝায়। বাক্যের শুরুতে বসালে জোর দেওয়া হয় এবং Inversion বাধ্যতামূলক।",
- e:[["<b>Never have I seen</b> such a beautiful place.","এমন সুন্দর জায়গা আমি কখনো দেখিনি।"],
- ["<b>Rarely does he arrive</b> on time.","সে খুব কমই সময়মতো আসে।"],
- ["<b>Little did I know</b> about the surprise.","আমি সারপ্রাইজটার কথা কিছুই জানতাম না।"],
- ["<b>Under no circumstances should you open</b> this door.","কোনো অবস্থাতেই এই দরজা খোলা উচিত নয়।"]],o:true},
-{t:"২. Hardly … when / No sooner … than",f:"<tg>Hardly / Scarcely</tg> + <ax>had</ax> + <sb>S</sb> + V3 + <b>when</b> + Past Simple<br><tg>No sooner</tg> + <ax>had</ax> + <sb>S</sb> + V3 + <b>than</b> + Past Simple",
- n:"দুটি কাজ প্রায় একসাথে ঘটলে ব্যবহার হয়। প্রথম অংশে Past Perfect, দ্বিতীয় অংশে Past Simple। Hardly/Scarcely-এর সাথে <b>when</b>, No sooner-এর সাথে <b>than</b>।",
- e:[["<b>Hardly had she left</b> when the phone rang.","সে বের হতে না হতেই ফোন বেজে উঠল।"],
- ["<b>No sooner had he sat</b> down than the bell rang.","সে বসতে না বসতেই ঘণ্টা বাজল।"]]},
-{t:"৩. Not only … but also / Not until / Only + adverbial",f:"<tg>Not only</tg> + <ax>aux</ax> + <sb>S</sb> + <vb>V</vb>, but … also …<br><tg>Not until / Only after / Only when / Only then</tg> + <ax>aux</ax> + <sb>S</sb> + <vb>V</vb>",
- w:["Not only","Not until","Only after","Only when","Only if","Only by","Only then"],
- n:"Not only-এর Inversion শুধু প্রথম অংশে হয়। Not until / Only after-এর ক্ষেত্রে Inversion হয় <b>মূল বাক্যাংশে</b>, শর্তাংশে নয়।",
- e:[["<b>Not only did she sing</b>, but she also danced.","সে শুধু গান গায়নি, নাচেও করেছে।"],
- ["<b>Not until the exam ended did she relax</b>.","পরীক্ষা শেষ হওয়ার আগে পর্যন্ত সে স্বস্তি পায়নি।"],
- ["<b>Only after he apologized did she forgive</b> him.","সে ক্ষমা চাওয়ার পরেই কেবল তাকে মাফ করল।"]]},
-{t:"৪. So / Such … that",f:"<tg>So + adjective</tg> + <ax>be</ax> + <sb>S</sb> + that …<br><tg>Such + be</tg> + <sb>S</sb> + that …",
- n:"ফলাফল বোঝাতে। So/Such শুরুতে এনে Inversion করলে বাক্য শক্তিশালী ও সাহিত্যিক হয়।",
- e:[["<b>So tired was she</b> that she fell asleep at once.","সে এতটাই ক্লান্ত ছিল যে সঙ্গে সঙ্গে ঘুমিয়ে পড়ল।"],
- ["<b>Such was his anger</b> that he left the room.","তার রাগ এতই বেশি ছিল যে সে ঘর ছেড়ে চলে গেল।"]]},
-{t:"৫. If ছাড়া Conditional (Had / Were / Should)",f:"<tg>Had</tg> + <sb>S</sb> + V3 … (If + S + had + V3)<br><tg>Were</tg> + <sb>S</sb> … (If + S + were …)<br><tg>Should</tg> + <sb>S</sb> + V1 … (If + S + should …)",
- n:"<b>if</b> বাদ দিয়ে Auxiliary-কে Subject-এর আগে এনে Conditional বানানো যায়। এটি আনুষ্ঠানিক ভাষায় বেশি ব্যবহৃত হয়।",
- e:[["<b>Had I known</b>, I would have helped. (= If I had known…)","আমি জানলে সাহায্য করতাম।"],
- ["<b>Were I</b> you, I would accept the offer. (= If I were you…)","আমি তোমার জায়গায় হলে প্রস্তাবটা নিতাম।"],
- ["<b>Should you need</b> help, call me. (= If you should need…)","তোমার সাহায্য লাগলে আমাকে ফোন করো।"]]},
-{t:"৬. So / Neither / Nor দিয়ে সমর্থন",f:"<tg>So</tg> + <ax>aux</ax> + <sb>S</sb> (হ্যাঁ-বাচক)<br><tg>Neither / Nor</tg> + <ax>aux</ax> + <sb>S</sb> (না-বাচক)",
- n:"আগের বাক্যের Auxiliary-এর সাথে মিল রেখে একই কথা বলতে। আগের বাক্যে Auxiliary না থাকলে do/does/did আসে।",
- e:[["“I love tea.” — <b>So do I</b>.","“আমি চা ভালোবাসি।” — আমিও।"],
- ["“She can’t swim.” — <b>Neither can he</b>.","“সে সাঁতার জানে না।” — সেও জানে না।"],
- ["He didn’t come, <b>nor did she</b>.","সে আসেনি, সেও আসেনি।"]]},
-{t:"৭. Here / There / স্থান-দিকবাচক শব্দ + ক্রিয়া",f:"<tg>Here / There / Down / Up / Away</tg> + <vb>verb</vb> + <sb>noun subject</sb>",
- n:"এখানে Subject যদি <b>Noun</b> হয় তবে Inversion হয়। Subject <b>Pronoun</b> হলে হয় না (<i>Here he comes</i>)। এই ধরনের বাক্য গল্প ও বর্ণনায় বেশি দেখা যায়।",
- e:[["<b>Here comes the bus</b>.","ওই যে বাস আসছে।"],
- ["<b>Down came the rain</b>.","ঝমঝম করে বৃষ্টি নামল।"],
- ["<b>There goes my chance</b>.","আমার সুযোগটা চলে গেল।"]]}
-];
-const L=document.getElementById("rulelist");
-R.forEach(r=>{
- let h=`<details${r.o?" open":""}><summary>${r.t}</summary><div class="body"><div class="card" style="margin-top:0"><div class="lbl">গঠন</div><div>${r.f}</div></div>`;
- if(r.w)h+=`<div class="chips">${r.w.map(x=>`<span>${x}</span>`).join("")}</div>`;
- h+=`<p class="bn">${r.n}</p>`;
- r.e.forEach(e=>h+=`<div class="ex"><div class="en">${e[0]}</div><div class="bn">${e[1]}</div></div>`);
- L.insertAdjacentHTML("beforeend",h+"</div></details>");
-});
-const Q=[
-["Never ___ such a beautiful place.",["I have seen","have I seen","I saw"],1,"Never শুরুতে থাকলে Auxiliary আগে আসে: Never have I seen।"],
-["Rarely ___ late.",["he comes","comes he","does he come"],2,"Auxiliary না থাকলে does লাগে এবং ক্রিয়া V1 হয়।"],
-["No sooner had she left ___ the phone rang.",["when","than","then"],1,"No sooner-এর সাথে than বসে।"],
-["___ you need help, call me.",["Should","Would","Do"],0,"Should you need = If you should need।"],
-["So tired ___ that she slept at once.",["she was","was she","did she"],1,"So + adjective শুরুতে থাকলে be verb Subject-এর আগে আসে।"],
-["“I love tea.” — “___ I.”",["So love","So do","Do so"],1,"আগের বাক্যে love আছে, তাই So do I।"]
-];
-const B=document.getElementById("quizbox"),S=document.getElementById("score");let sc=0,done=0;
-Q.forEach((q,i)=>{
- const d=document.createElement("div");d.className="card q";
- d.innerHTML=`<b>${i+1}. ${q[0]}</b><div class="opts"></div><div class="fb"></div>`;
- const o=d.querySelector(".opts"),fb=d.querySelector(".fb");
- q[1].forEach((t,k)=>{const b=document.createElement("button");b.textContent=t;
-  b.onclick=()=>{if(d.dataset.d)return;d.dataset.d=1;done++;
-   const bs=o.querySelectorAll("button");bs[q[2]].classList.add("good");
-   if(k===q[2]){sc++;fb.innerHTML="✅ সঠিক! "+q[3]}else{b.classList.add("bad");fb.innerHTML="❌ ভুল। "+q[3]}
-   if(done===Q.length)S.textContent=`আপনার স্কোর: ${sc} / ${Q.length}`};
-  o.appendChild(b)});
- B.appendChild(d)});
+(()=>{'use strict';
+/* ===== CONFIG: add your keys here ===== */
+const YOUTUBE_API_KEY="YOUR_API_KEY_HERE", GOOGLE_CSE_ID="YOUR_CSE_ID_HERE";
+const $=(s,r=document)=>r.querySelector(s);
+const S={get:(k,d)=>{try{return localStorage.getItem(k)??d}catch(e){return d}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
+const IC={calc:'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h2M12 12h2M8 16h2M12 16h2"/>',conv:'<path d="M4 8h14l-3-3M20 16H6l3 3"/>',cam:'<path d="M3 8h4l2-3h6l2 3h4v11H3z"/><circle cx="12" cy="13" r="3.5"/>',yt:'<rect x="3" y="6" width="18" height="12" rx="4"/><path d="M10 9.5v5l4.5-2.5z"/>',gs:'<circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/>',tm:'<circle cx="12" cy="13" r="7"/><path d="M12 9v4l3 2M9 3h6"/>',pal:'<circle cx="12" cy="12" r="9"/><circle cx="8.5" cy="10" r="1"/><circle cx="12" cy="7.5" r="1"/><circle cx="15.5" cy="10" r="1"/>',fs:'<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>'};
+const ic=k=>`<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[k]}</svg>`;
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const dec=s=>{const t=document.createElement('textarea');t.innerHTML=s;return t.value};
+let tt;const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2600)};
+const copy=async v=>{try{await navigator.clipboard.writeText(v);toast('Copied ✓')}catch(e){toast('Copy failed')}};
+const loadJS=src=>new Promise((ok,no)=>{const s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=()=>no(new Error('load'));document.head.appendChild(s)});
+
+/* ===== TOOL: CALCULATOR (safe recursive-descent parser, no eval) ===== */
+function ev(src,deg){
+ const t=src.replace(/×/g,'*').replace(/÷/g,'/').replace(/−/g,'-').replace(/π/g,'pi').match(/\d+\.?\d*|\.\d+|[a-z]+|[-+*/^%(),]|\S/gi)||[];let i=0;
+ const pk=()=>t[i],nx=()=>t[i++],rad=x=>deg?x*Math.PI/180:x;
+ const F={sin:x=>Math.sin(rad(x)),cos:x=>Math.cos(rad(x)),tan:x=>Math.tan(rad(x)),log:Math.log10,ln:Math.log,sqrt:Math.sqrt};
+ const ex=()=>{let v=tm();while(pk()=='+'||pk()=='-')v=nx()=='+'?v+tm():v-tm();return v};
+ const tm=()=>{let v=un();while(pk()=='*'||pk()=='/')v=nx()=='*'?v*un():v/un();return v};
+ const un=()=>{if(pk()=='-'){nx();return -un()}if(pk()=='+'){nx();return un()}return pw()};
+ const pw=()=>{const b=po();if(pk()=='^'){nx();return Math.pow(b,un())}return b};
+ const po=()=>{let v=pr();while(pk()=='%'){nx();v/=100}return v};
+ const pr=()=>{const x=nx();if(x===undefined)throw 0;
+  if(/^[\d.]/.test(x))return parseFloat(x);
+  if(x=='(' ){const v=ex();if(pk()==')')nx();return v}
+  const n=x.toLowerCase();if(n=='pi')return Math.PI;if(n=='e')return Math.E;
+  if(F[n]&&pk()=='('){nx();const v=ex();if(pk()==')')nx();return F[n](v)}throw 0};
+ const r=ex();if(i<t.length)throw 0;if(!isFinite(r))throw 0;return r}
+function calc(el){
+ let deg=S.get('deg','1')=='1',sci=false,ans='0',hist=[];try{hist=JSON.parse(S.get('hist','[]'))}catch(e){}
+ el.innerHTML=`<div class="row"><button class="btn g sm" id="m">Scientific</button><button class="btn g sm" id="dg"></button><button class="btn g sm" id="cp">Copy result</button></div>
+ <input id="d" class="disp" inputmode="none" autocomplete="off" placeholder="0" aria-label="Expression"><div class="res" id="r">0</div>
+ <div class="keys" id="sk" hidden></div><div class="keys" id="k"></div>
+ <div class="row"><b>History</b><button class="btn g sm" id="hc">Clear</button></div><div class="hist" id="h"></div>`;
+ const d=$('#d',el),r=$('#r',el);
+ const fmt=v=>String(parseFloat(v.toPrecision(12)));
+ const sciK=[['sin','sin('],['cos','cos('],['tan','tan('],['log','log('],['ln','ln('],['√','sqrt('],['xʸ','^'],['π','π'],['e','e'],['(','('],[')',')'],['%','%']];
+ const rows=['C','⌫','(',')','7','8','9','÷','4','5','6','×','1','2','3','−','0','.','Ans','+'];
+ const kb=(box,list)=>list.forEach(x=>{const [l,v]=Array.isArray(x)?x:[x,x];const b=document.createElement('button');b.className='btn g';b.textContent=l;b.onclick=()=>press(v);box.appendChild(b)});
+ kb($('#sk',el),sciK);kb($('#k',el),rows);
+ const eq=document.createElement('button');eq.className='btn';eq.textContent='=';eq.style.gridColumn='1/-1';eq.onclick=()=>press('=');$('#k',el).appendChild(eq);
+ const rh=()=>{$('#h',el).innerHTML=hist.map((x,i)=>`<button data-i="${i}">${esc(x[0])} = ${esc(x[1])}</button>`).join('')||'<p class="hint">No history yet.</p>'};
+ function press(v){
+  if(v=='C'){d.value='';r.textContent='0'}else if(v=='⌫')d.value=d.value.slice(0,-1);
+  else if(v=='Ans')d.value+=ans;
+  else if(v=='='){try{const x=fmt(ev(d.value,deg));hist.unshift([d.value,x]);hist=hist.slice(0,30);S.set('hist',JSON.stringify(hist));ans=x;r.textContent=x;d.value=x;rh()}catch(e){r.textContent='Error';toast('Invalid expression')}}
+  else d.value+=v;
+  if(v!='='&&v!='C'){try{r.textContent=fmt(ev(d.value,deg))}catch(e){}}}
+ d.addEventListener('keydown',e=>{if(e.key=='Enter'){e.preventDefault();press('=')}});
+ d.addEventListener('input',()=>{try{r.textContent=fmt(ev(d.value,deg))}catch(e){}});
+ $('#m',el).onclick=e=>{sci=!sci;$('#sk',el).hidden=!sci;e.target.textContent=sci?'Basic':'Scientific'};
+ const sd=()=>$('#dg',el).textContent=deg?'Degrees':'Radians';sd();
+ $('#dg',el).onclick=()=>{deg=!deg;S.set('deg',deg?'1':'0');sd()};
+ $('#cp',el).onclick=()=>copy(r.textContent);
+ $('#hc',el).onclick=()=>{hist=[];S.set('hist','[]');rh()};
+ $('#h',el).onclick=e=>{const b=e.target.closest('button');if(b)d.value=hist[b.dataset.i][0]};
+ rh();d.focus({preventScroll:true});return{destroy(){}}}
+
+/* ===== TOOL: NUMBER SYSTEM CONVERTER (BigInt) ===== */
+function conv(el){
+ const B=[['Binary',2,/^[01]+$/,'0b'],['Octal',8,/^[0-7]+$/,'0o'],['Decimal',10,/^\d+$/,''],['Hexadecimal',16,/^[0-9a-f]+$/i,'0x']];
+ el.innerHTML=B.map(([n,b])=>`<label>${n} <small class="hint">(base ${b})</small><div class="row"><input class="mono" data-b="${b}" spellcheck="false" autocomplete="off"><button class="btn g sm" data-c="${b}">Copy</button></div></label>`).join('')+'<div class="err" id="e"></div><div class="hint" id="s"></div>';
+ const inp=b=>$(`input[data-b="${b}"]`,el);
+ el.oninput=e=>{const x=e.target;if(!x.dataset.b)return;const b=+x.dataset.b,v=x.value.trim().replace(/\s/g,''),sp=B.find(q=>q[1]==b);
+  $('#e',el).textContent='';if(!v){B.forEach(q=>inp(q[1]).value='');$('#s',el).textContent='';return}
+  if(!sp[2].test(v)){$('#e',el).textContent=`Invalid digit for base ${b}. Allowed: ${b==2?'0-1':b==8?'0-7':b==10?'0-9':'0-9, A-F'}.`;return}
+  const n=BigInt(sp[3]+v);B.forEach(q=>{if(q[1]!=b)inp(q[1]).value=n.toString(q[1]).toUpperCase()});
+  $('#s',el).textContent=`Steps: read “${v}” as base ${b} → decimal ${n} → divide by 2, 8 and 16 repeatedly (remainders from last to first) to get the other bases.`};
+ el.onclick=e=>{const b=e.target.closest('[data-c]');if(b)copy(inp(b.dataset.c).value)};
+ return{destroy(){el.oninput=el.onclick=null}}}
+
+/* ===== TOOL: OBJECT DETECTOR (TensorFlow.js + coco-ssd) ===== */
+function det(el){
+ let model,stream,raf,run=false,face='environment',t0=performance.now(),fr=0;
+ el.innerHTML=`<div class="stage"><video playsinline muted></video><canvas></canvas></div>
+ <div class="row"><button class="btn" id="a">Start</button><button class="btn g" id="sw">Switch camera</button><button class="btn g" id="sn">Snapshot</button><b class="mono" id="f">0 FPS</b></div>
+ <div class="hint" id="st">Press Start. The model (~5 MB) downloads on first use.</div><div id="l"></div>`;
+ const v=$('video',el),c=$('canvas',el),x=c.getContext('2d'),st=$('#st',el);
+ const stopCam=()=>{stream&&stream.getTracks().forEach(t=>t.stop());stream=null;v.srcObject=null};
+ const col=n=>`hsl(${[...n].reduce((a,ch)=>a+ch.charCodeAt(0)*7,0)%360} 90% 55%)`;
+ async function cam(){stopCam();stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:face},audio:false});v.srcObject=stream;await v.play()}
+ async function start(){
+  if(!navigator.onLine){st.textContent='You are offline. The model needs internet to download.';return}
+  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){st.textContent='Camera is not available (HTTPS and a camera are required).';return}
+  try{
+   if(!model){st.innerHTML='<div class="sk"></div>Loading model…';
+    await loadJS('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js');
+    await loadJS('https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.3/dist/coco-ssd.min.js');
+    model=await cocoSsd.load()}
+   await cam();run=true;$('#a',el).textContent='Stop';st.textContent='Detecting…';loop()
+  }catch(e){st.textContent=e&&e.name=='NotAllowedError'?'Camera permission was denied. Allow it in your browser settings.':e&&e.name=='NotFoundError'?'No camera found on this device.':'Could not start: '+(e.message||e);run=false}}
+ function stop(){run=false;cancelAnimationFrame(raf);stopCam();x.clearRect(0,0,c.width,c.height);$('#a',el).textContent='Start';st.textContent='Stopped.'}
+ async function loop(){if(!run)return;
+  if(v.readyState>=2){const p=await model.detect(v);if(!run)return;c.width=v.videoWidth;c.height=v.videoHeight;x.clearRect(0,0,c.width,c.height);x.lineWidth=3;x.font='bold 18px Inter';
+   p.forEach(o=>{const[a,b,w,h]=o.bbox,k=col(o.class),t=`${o.class} ${Math.round(o.score*100)}%`;x.strokeStyle=k;x.strokeRect(a,b,w,h);const tw=x.measureText(t).width+10;x.fillStyle=k;x.fillRect(a,Math.max(0,b-24),tw,24);x.fillStyle='#000';x.fillText(t,a+5,Math.max(18,b-6))});
+   $('#l',el).innerHTML=p.map(o=>`<div class="hint"><b style="color:${col(o.class)}">●</b> ${esc(o.class)} – ${Math.round(o.score*100)}%</div>`).join('')||'<div class="hint">No objects detected.</div>';
+   fr++;const n=performance.now();if(n-t0>1000){$('#f',el).textContent=Math.round(fr*1000/(n-t0))+' FPS';fr=0;t0=n}}
+  raf=requestAnimationFrame(loop)}
+ $('#a',el).onclick=()=>run?stop():start();
+ $('#sw',el).onclick=async()=>{face=face=='environment'?'user':'environment';if(run){try{await cam()}catch(e){toast('Cannot switch camera')}}};
+ $('#sn',el).onclick=()=>{if(!v.videoWidth)return toast('Start the camera first');const s=document.createElement('canvas');s.width=v.videoWidth;s.height=v.videoHeight;const q=s.getContext('2d');q.drawImage(v,0,0);q.drawImage(c,0,0);s.toBlob(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='snapshot.png';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)});toast('Snapshot saved')};
+ return{destroy(){stop()}}}
+
+/* ===== TOOL: YOUTUBE SEARCH ===== */
+function yt(el){
+ let rc=[];try{rc=JSON.parse(S.get('yts','[]'))}catch(e){}
+ el.innerHTML=`<div class="row"><input id="q" placeholder="Search YouTube…" aria-label="Search YouTube"><button class="btn" id="go">Search</button></div><div class="chips" id="c"></div><div id="p"></div><div class="grid" id="r"></div>`;
+ const q=$('#q',el),r=$('#r',el),K=YOUTUBE_API_KEY;
+ const chips=()=>$('#c',el).innerHTML=rc.map(x=>`<button>${esc(x)}</button>`).join('');chips();
+ const dur=s=>{const m=/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/.exec(s||'');if(!m)return'';const p=n=>String(n||0).padStart(2,'0');return(m[1]?m[1]+':':'')+(m[1]?p(m[2]):(m[2]||0))+':'+p(m[3])};
+ async function go(){const t=q.value.trim();if(!t)return;
+  if(K.startsWith('YOUR')){r.innerHTML='<p class="hint">Setup needed: open index.html, find <b>YOUTUBE_API_KEY</b> and paste a YouTube Data API v3 key (Google Cloud Console → APIs &amp; Services).</p>';return}
+  if(!navigator.onLine){r.innerHTML='<p class="err">You are offline.</p>';return}
+  rc=[t,...rc.filter(x=>x!=t)].slice(0,6);S.set('yts',JSON.stringify(rc));chips();
+  r.innerHTML='<div class="sk"></div><div class="sk"></div><div class="sk"></div>';
+  try{const j=await(await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=12&q=${encodeURIComponent(t)}&key=${K}`)).json();
+   if(j.error){r.innerHTML=`<p class="err">${esc(j.error.message||'API error')} (quota or key problem)</p>`;return}
+   const ids=j.items.map(i=>i.id.videoId).join(',');let D={};
+   try{const k=await(await fetch(`https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=${ids}&key=${K}`)).json();(k.items||[]).forEach(i=>D[i.id]=dur(i.contentDetails.duration))}catch(e){}
+   r.innerHTML=j.items.map(i=>`<button class="vc" data-id="${esc(i.id.videoId)}"><img loading="lazy" alt="" src="${esc(i.snippet.thumbnails.medium.url)}"><div>${esc(dec(i.snippet.title))}<br><small>${esc(dec(i.snippet.channelTitle))}${D[i.id.videoId]?' · '+D[i.id.videoId]:''}</small></div></button>`).join('')||'<p class="hint">No results.</p>'
+  }catch(e){r.innerHTML='<p class="err">Network error. Check your connection.</p>'}}
+ $('#go',el).onclick=go;q.onkeydown=e=>{if(e.key=='Enter')go()};
+ $('#c',el).onclick=e=>{const b=e.target.closest('button');if(b){q.value=b.textContent;go()}};
+ r.onclick=e=>{const b=e.target.closest('.vc');if(!b)return;
+  $('#p',el).innerHTML=`<div class="row"><button class="btn g sm" id="th">Theatre mode</button></div><iframe class="player" src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(b.dataset.id)}?autoplay=1" title="YouTube video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
+  $('#th',el).onclick=()=>$('.player',el).classList.toggle('wide');$('.player',el).scrollIntoView({behavior:'smooth',block:'center'})};
+ return{destroy(){el.innerHTML=''}}}
+
+/* ===== TOOL: GOOGLE SEARCH (Programmable Search Engine) ===== */
+function gg(el){
+ if(GOOGLE_CSE_ID.startsWith('YOUR')){el.innerHTML='<p class="hint">Setup needed: create a Programmable Search Engine at programmablesearchengine.google.com, copy its Search engine ID, then paste it into <b>GOOGLE_CSE_ID</b> in index.html.</p>';return{destroy(){}}}
+ if(!navigator.onLine){el.innerHTML='<p class="err">You are offline.</p>';return{destroy(){}}}
+ el.innerHTML='<div class="gcse-search"></div>';const s=document.createElement('script');s.async=true;s.src='https://cse.google.com/cse.js?cx='+encodeURIComponent(GOOGLE_CSE_ID);el.appendChild(s);
+ return{destroy(){el.innerHTML=''}}}
+
+/* ===== TOOL: EXAM TIMER ===== */
+function tmr(el){
+ let end=0,left=0,total=0,state='idle',iv,wl,fired={},mute=S.get('mute','0')=='1',ac;
+ el.innerHTML=`<input id="lb" placeholder="Label (e.g. Maths Exam)" aria-label="Label">
+ <div class="tm" style="margin-top:8px"><input id="h" type="number" min="0" max="99" placeholder="Hours" aria-label="Hours"><input id="m" type="number" min="0" max="59" placeholder="Min" aria-label="Minutes"><input id="s" type="number" min="0" max="59" placeholder="Sec" aria-label="Seconds"></div>
+ <div class="row" id="pr">${[5,10,30,60,120].map(n=>`<button class="btn g sm" data-m="${n}">${n} min</button>`).join('')}</div>
+ <svg class="ring" viewBox="0 0 220 220"><circle cx="110" cy="110" r="96" fill="none" stroke="var(--bd)" stroke-width="12"/><circle id="rg" cx="110" cy="110" r="96" fill="none" stroke="var(--ac)" stroke-width="12" stroke-linecap="round" stroke-dasharray="603.2" stroke-dashoffset="0" transform="rotate(-90 110 110)"/><text id="tx" x="110" y="122" text-anchor="middle">00:00:00</text></svg>
+ <div class="row" style="justify-content:center"><button class="btn" id="go">Start</button><button class="btn g" id="rs">Reset</button><button class="btn g" id="mu"></button></div><div class="hint" id="n" style="text-align:center"></div>`;
+ const g=s=>$(s,el),C=603.2;
+ const pad=n=>String(n).padStart(2,'0'),show=ms=>{const s=Math.max(0,Math.ceil(ms/1000));g('#tx').textContent=`${pad(s/3600|0)}:${pad(s%3600/60|0)}:${pad(s%60)}`;
+  const p=total?ms/(total*1000):0;g('#rg').style.strokeDashoffset=C*(1-Math.max(0,Math.min(1,p)));g('#rg').style.stroke=p>.5?'var(--ac)':p>.2?'#ffb020':'#ff4d4d'};
+ const mu=()=>g('#mu').textContent=mute?'🔇 Muted':'🔔 Sound on';mu();
+ const beep=n=>{if(mute)return;try{ac=ac||new AudioContext();for(let i=0;i<n;i++){const o=ac.createOscillator(),q=ac.createGain();o.connect(q);q.connect(ac.destination);o.frequency.value=880;const t=ac.currentTime+i*.35;q.gain.setValueAtTime(.25,t);q.gain.exponentialRampToValueAtTime(.001,t+.25);o.start(t);o.stop(t+.27)}}catch(e){}};
+ const alert2=(m,n)=>{beep(n);navigator.vibrate&&navigator.vibrate([200,100,200]);el.classList.add('flash');setTimeout(()=>el.classList.remove('flash'),1600);toast(m);g('#n').textContent=m};
+ const lock=async()=>{try{wl=await navigator.wakeLock.request('screen')}catch(e){}};
+ const unlock=()=>{try{wl&&wl.release()}catch(e){}wl=null};
+ const vis=()=>{if(document.visibilityState=='visible'&&state=='run')lock()};document.addEventListener('visibilitychange',vis);
+ function tick(){left=end-Date.now();show(left);const s=left/1000;
+  [600,300,60].forEach(th=>{if(s<=th&&!fired[th]&&total>th){fired[th]=1;alert2(th/60+' minute(s) left',2)}});
+  if(left<=0){clearInterval(iv);state='idle';unlock();show(0);alert2('Time is up!',4);g('#go').textContent='Start'}}
+ g('#go').onclick=()=>{
+  if(state=='run'){left=end-Date.now();clearInterval(iv);state='pause';g('#go').textContent='Resume';unlock();return}
+  if(state=='idle'){total=(+g('#h').value||0)*3600+(+g('#m').value||0)*60+(+g('#s').value||0);if(!total)return toast('Set a time first');left=total*1000;fired={}}
+  end=Date.now()+left;state='run';g('#go').textContent='Pause';lock();clearInterval(iv);iv=setInterval(tick,200);tick();if(ac&&ac.state=='suspended')ac.resume()};
+ g('#rs').onclick=()=>{clearInterval(iv);state='idle';unlock();total=0;g('#go').textContent='Start';g('#n').textContent='';show(0)};
+ g('#mu').onclick=()=>{mute=!mute;S.set('mute',mute?'1':'0');mu()};
+ g('#pr').onclick=e=>{const b=e.target.closest('[data-m]');if(!b)return;const m=+b.dataset.m;g('#h').value=m/60|0;g('#m').value=m%60;g('#s').value=0};
+ return{destroy(){clearInterval(iv);unlock();document.removeEventListener('visibilitychange',vis);if(ac)try{ac.close()}catch(e){}}}}
+
+/* ===== APP SHELL ===== */
+const TABS=[{n:'Tap 1',o:[{f:calc,t:'Calculator',d:'Basic and scientific maths',i:'calc'},{f:conv,t:'Number Converter',d:'Binary, octal, decimal, hex',i:'conv'},{f:det,t:'Object Detector',d:'Live camera AI detection',i:'cam'}]},
+ {n:'Tap 2',o:[{f:yt,t:'YouTube Search',d:'Search and watch here',i:'yt'},{f:gg,t:'Google Search',d:'Embedded web search',i:'gs'},{f:tmr,t:'Exam Timer',d:'Countdown with alerts',i:'tm'}]}];
+const PAL=[['midnight','#16307a'],['royal','#7c3aed'],['emerald','#0e9f6e'],['sunset','#f59e0b'],['light','#e8eeff']];
+let tab=+S.get('tab',0)||0,opt=+S.get('opt',0)||0,cur=null;
+const tool=$('#tool');
+function render(){
+ $('#tabs').dataset.i=tab;$('#tabs').querySelectorAll('button').forEach(b=>b.remove());
+ TABS.forEach((t,i)=>{const b=document.createElement('button');b.textContent=t.n;b.setAttribute('role','tab');b.setAttribute('aria-selected',i==tab);b.className=i==tab?'on':'';b.onclick=()=>go(i,0);$('#tabs').appendChild(b)});
+ $('#opts').innerHTML=TABS[tab].o.map((o,i)=>`<button class="opt glass${i==opt?' on':''}" data-i="${i}" aria-pressed="${i==opt}">${ic(o.i)}<b>${o.t}</b><span>${o.d}</span></button>`).join('');
+ if(cur&&cur.destroy)cur.destroy();tool.style.animation='none';void tool.offsetWidth;tool.style.animation='';tool.innerHTML='';
+ try{cur=TABS[tab].o[opt].f(tool)}catch(e){tool.innerHTML='<p class="err">Could not open this tool.</p>';console.error(e)}}
+function go(t,o){tab=t;opt=o;S.set('tab',t);S.set('opt',o);render()}
+$('#opts').onclick=e=>{const b=e.target.closest('.opt');if(b&&+b.dataset.i!=opt)go(tab,+b.dataset.i)};
+/* theme */
+function theme(n){document.documentElement.dataset.theme=n;S.set('theme',n);const m=document.querySelector('meta[name=theme-color]');m.content=getComputedStyle(document.documentElement).getPropertyValue('--b1').trim()||'#0b1230'}
+$('#pal').innerHTML=PAL.map(([n,c])=>`<button role="menuitem" aria-label="${n}" title="${n}" style="background:${c}" data-t="${n}"></button>`).join('');
+$('#pal').onclick=e=>{const b=e.target.closest('[data-t]');if(b){theme(b.dataset.t);$('#pal').classList.remove('on')}};
+$('#pb').innerHTML=ic('pal');$('#pb').onclick=()=>$('#pal').classList.toggle('on');
+$('#fs').innerHTML=ic('fs');$('#fs').onclick=()=>{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen().catch(()=>toast('Fullscreen not available'))};
+theme(PAL.some(p=>p[0]==S.get('theme','midnight'))?S.get('theme','midnight'):'midnight');
+/* PWA: data-URI manifest + install button */
+const mf={name:'Toolbox Pro',short_name:'Toolbox',start_url:'./',display:'standalone',background_color:'#0b1230',theme_color:'#0b1230',icons:[{src:"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235cc8ff'/%3E%3C/svg%3E",sizes:'any',type:'image/svg+xml'}]};
+const lk=document.createElement('link');lk.rel='manifest';lk.href='data:application/manifest+json,'+encodeURIComponent(JSON.stringify(mf));document.head.appendChild(lk);
+let dp;addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;$('#inst').hidden=false});
+$('#inst').onclick=async()=>{if(dp){dp.prompt();await dp.userChoice;dp=null;$('#inst').hidden=true}};
+/* offline notice and shortcuts */
+addEventListener('offline',()=>toast('You are offline. Search and AI model need internet.'));addEventListener('online',()=>toast('Back online ✓'));
+addEventListener('keydown',e=>{if(/INPUT|TEXTAREA/.test(e.target.tagName)||e.ctrlKey||e.metaKey||e.altKey)return;const k=e.key.toLowerCase();
+ if(k=='1'||k=='2')go(+k-1,0);else if('qwe'.includes(k)&&k.length==1)go(tab,'qwe'.indexOf(k));
+ else if(k=='t'){const i=PAL.findIndex(p=>p[0]==document.documentElement.dataset.theme);theme(PAL[(i+1)%PAL.length][0])}
+ else if(k=='?')toast('1/2 tabs · Q/W/E tools · T theme')});
+render();addEventListener('load',()=>setTimeout(()=>$('#splash').classList.add('off'),600));
+setTimeout(()=>$('#splash').classList.add('off'),2500);
+})();
 </script>
-<!-- আকর্ষণীয় কার্ড ডিজাইন -->
-<div style="
-    max-width: 600px; 
-    margin: 30px auto; 
-    padding: 25px; 
-    border-radius: 16px; 
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-    color: white; 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
-    font-family: Arial, sans-serif; 
-    text-align: center;">
-
-    <div style="font-size: 48px; margin-bottom: 10px;">📄</div>
-    <h2 style="margin: 0 0 10px 0; font-size: 24px;">English Word Guide</h2>
-    <p style="opacity: 0.9; margin-bottom: 25px;">IUT প্রস্তুতি ও ভোকাবুলারির জন্য প্রয়োজনীয় শব্দাবলি</p>
-
-    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-        <!-- পিডিএফ দেখার বাটন -->
-        <a href="English_word.pdf" target="_blank" style="
-            padding: 12px 24px; 
-            background-color: #ffffff; 
-            color: #764ba2; 
-            text-decoration: none; 
-            font-weight: bold; 
-            border-radius: 8px; 
-            transition: 0.3s; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-            👁️ PDF দেখুন
-        </a>
-
-        <!-- পিডিএফ ডাউনলোড করার বাটন -->
-        <a href="English_word.pdf" download style="
-            padding: 12px 24px; 
-            background-color: #ff758c; 
-            color: white; 
-            text-decoration: none; 
-            font-weight: bold; 
-            border-radius: 8px; 
-            transition: 0.3s; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-            ⬇️ ডাউনলোড করুন
-        </a>
-    </div>
-</div>
-
-
- <!-- আকর্ষণীয় কার্ড ডিজাইন -->
-<div style="
-    max-width: 600px; 
-    margin: 30px auto; 
-    padding: 25px; 
-    border-radius: 16px; 
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-    color: white; 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
-    font-family: Arial, sans-serif; 
-    text-align: center;">
-
-    <div style="font-size: 48px; margin-bottom: 10px;">📄</div>
-    <h2 style="margin: 0 0 10px 0; font-size: 24px;">English Word With Meaning</h2>
-    <p style="opacity: 0.9; margin-bottom: 25px;"> ভোকাবুলারির জন্য প্রয়োজনীয় শব্দাবলি</p>
-
-    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-        <!-- পিডিএফ দেখার বাটন -->
-        <a href="English_word2.pdf" target="_blank" style="
-            padding: 12px 24px; 
-            background-color: #ffffff; 
-            color: #764ba2; 
-            text-decoration: none; 
-            font-weight: bold; 
-            border-radius: 8px; 
-            transition: 0.3s; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-            👁️ PDF দেখুন
-        </a>
-
-        <!-- পিডিএফ ডাউনলোড করার বাটন -->
-        <a href="English_word2.pdf" download style="
-            padding: 12px 24px; 
-            background-color: #ff758c; 
-            color: white; 
-            text-decoration: none; 
-            font-weight: bold; 
-            border-radius: 8px; 
-            transition: 0.3s; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-            ⬇️ ডাউনলোড করুন
-        </a>
-    </div>
-</div>
-
-  <!-- আকর্ষণীয় কার্ড ডিজাইন -->
-<div style="
-    max-width: 600px; 
-    margin: 30px auto; 
-    padding: 25px; 
-    border-radius: 16px; 
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-    color: white; 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
-    font-family: Arial, sans-serif; 
-    text-align: center;">
-
-    <div style="font-size: 48px; margin-bottom: 10px;">📄</div>
-    <h2 style="margin: 0 0 10px 0; font-size: 24px;">English Word With Meaning</h2>
-    <p style="opacity: 0.9; margin-bottom: 25px;"> ভোকাবুলারির জন্য প্রয়োজনীয় শব্দাবলি</p>
-
-    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-        <!-- পিডিএফ দেখার বাটন -->
-        <a href="English_word3.pdf" target="_blank" style="
-            padding: 12px 24px; 
-            background-color: #ffffff; 
-            color: #764ba2; 
-            text-decoration: none; 
-            font-weight: bold; 
-            border-radius: 8px; 
-            transition: 0.3s; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-            👁️ PDF দেখুন
-        </a>
-
-        <!-- পিডিএফ ডাউনলোড করার বাটন -->
-        <a href="English_word3.pdf" download style="
-            padding: 12px 24px; 
-            background-color: #ff758c; 
-            color: white; 
-            text-decoration: none; 
-            font-weight: bold; 
-            border-radius: 8px; 
-            transition: 0.3s; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-            ⬇️ ডাউনলোড করুন
-        </a>
-    </div>
-</div>
-
- 
-<script>
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register(
-        "/C-program-/sw.js",
-        { scope: "/C-program-/" }
-      ).catch((error) => {
-        console.error("Service Worker registration failed:", error);
-      });
-    });
-  }
-</script>
- 
- 
 </body>
-  </html>
-  
+</html>
