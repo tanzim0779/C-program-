@@ -369,7 +369,7 @@ Q.forEach((q,i)=>{
     window.addEventListener("load", () => {
       navigator.serviceWorker.register(
         "/C-program-/sw.js",
-        { scope: "/C-program/" }
+        { scope: "/C-program-/" }
       ).catch((error) => {
         console.error("Service Worker registration failed:", error);
       });
