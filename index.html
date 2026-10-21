@@ -358,6 +358,7 @@ function det(el){
  return{destroy(){stop()}}}
 
 /* ===== TOOL: YOUTUBE SEARCH ===== */
+      const YOUTUBE_API_KEY = 'https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=${ids}&key=${K';
 function yt(el){
  let rc=[];try{rc=JSON.parse(S.get('yts','[]'))}catch(e){}
  el.innerHTML=`<div class="row"><input id="q" placeholder="Search YouTube…" aria-label="Search YouTube"><button class="btn" id="go">Search</button></div><div class="chips" id="c"></div><div id="p"></div><div class="grid" id="r"></div>`;
