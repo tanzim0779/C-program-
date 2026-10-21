@@ -1,6 +1,6 @@
 
 const CACHE_NAME = "english-grammar-v1";
-const APP_URL = "/C-program/";
+const APP_URL = "/C-program-/";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
