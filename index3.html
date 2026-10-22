@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>মাইটিউব</title>
+<style>
+:root{--bg:#fff;--surface:#f2f2f2;--text:#0f0f0f;--muted:#606060;--line:#e5e5e5;--accent:#e11d2e;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f0f0f;--surface:#272727;--text:#f1f1f1;--muted:#aaa;--line:#303030;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f0f0f;--surface:#272727;--text:#f1f1f1;--muted:#aaa;--line:#303030;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Hind Siliguri","Noto Sans Bengali",Roboto,Arial,sans-serif;font-size:14px;padding-bottom:env(safe-area-inset-bottom,0)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+header{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:8px;min-height:56px;padding:0 12px;padding-top:env(safe-area-inset-top,0);background:var(--bg);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:6px;font-weight:700;font-size:18px;cursor:pointer;flex:none}
+.logo i{width:30px;height:21px;background:var(--accent);border-radius:6px;position:relative;display:inline-block}
+.logo i:after{content:"";position:absolute;left:11px;top:5px;border-left:9px solid #fff;border-top:5.5px solid transparent;border-bottom:5.5px solid transparent}
+.search{flex:1;max-width:560px;margin:0 auto;display:flex}
+.search input{flex:1;min-width:0;height:38px;padding:0 14px;border:1px solid var(--line);border-radius:20px 0 0 20px;background:var(--bg);color:var(--text);font:inherit;outline:0}
+.search input:focus{border-color:#3b82f6}
+.search button{width:56px;height:38px;border:1px solid var(--line);border-left:0;border-radius:0 20px 20px 0;background:var(--surface)}
+.ib{width:40px;height:40px;border-radius:50%;font-size:19px;flex:none}
+.ib:hover{background:var(--surface)}
+main{max-width:1400px;margin:0 auto;padding:0 16px 40px}
+.chips{display:flex;gap:10px;overflow-x:auto;padding:12px 0;scrollbar-width:none}
+.chip{flex:none;padding:7px 13px;border-radius:8px;background:var(--surface);font-weight:500}
+.chip.on{background:var(--text);color:var(--bg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px 16px}
+.card{cursor:pointer}
+.thumb{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:var(--surface)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.dur{position:absolute;right:6px;bottom:6px;background:rgba(0,0,0,.8);color:#fff;font-size:12px;padding:1px 5px;border-radius:4px}
+.t{font-weight:600;line-height:1.35;margin-top:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.s{color:var(--muted);font-size:13px;margin-top:3px}
+.msg{text-align:center;color:var(--muted);padding:50px 12px;line-height:1.7}
+.more{display:block;margin:28px auto 0;padding:10px 26px;border-radius:20px;background:var(--surface);font-weight:500}
+.key{max-width:520px;margin:30px auto;padding:20px;border:1px solid var(--line);border-radius:14px;line-height:1.7}
+.key input{width:100%;height:40px;padding:0 12px;margin:10px 0;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text);font:inherit}
+.key button{padding:9px 20px;border-radius:20px;background:var(--text);color:var(--bg);font-weight:600}
+.modal{position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.75);display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:calc(16px + env(safe-area-inset-top,0)) 10px 16px}
+.modal.open{display:flex}
+.box{width:100%;max-width:900px;background:var(--bg);border-radius:14px;overflow:hidden}
+.box iframe{display:block;width:100%;aspect-ratio:16/9;border:0;background:#000}
+.info{padding:14px 16px 18px}
+.info h2{margin:0 0 6px;font-size:18px;line-height:1.35}
+.desc{background:var(--surface);padding:12px;border-radius:12px;line-height:1.6;margin-top:12px;white-space:pre-line;max-height:180px;overflow:auto}
+.x{float:right}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo" id="home"><i></i><span>মাইটিউব</span></div>
+  <form class="search" id="sf"><input id="q" type="search" placeholder="ভিডিও খুঁজুন" autocomplete="off"><button type="submit" aria-label="খুঁজুন">🔍</button></form>
+  <button class="ib" id="key" aria-label="API key">🔑</button>
+  <button class="ib" id="theme" aria-label="থিম">🌓</button>
+</header>
+<main>
+  <div class="chips" id="chips"></div>
+  <div id="out"></div>
+</main>
+<div class="modal" id="modal"><div class="box">
+  <div id="pl"></div>
+  <div class="info"><button class="ib x" id="close" aria-label="বন্ধ">✕</button>
+  <h2 id="mt"></h2><div class="s" id="ms"></div><div class="desc" id="md"></div></div>
+</div></div>
+<script>
+/* ★ এখানে আপনার YouTube Data API key বসান (অথবা সাইটে 🔑 বোতামে চেপে বসান) ★ */
+const API_KEY = "";
+
+const $ = s => document.querySelector(s);
+const CATS = ["সব","বাংলা গান","শিক্ষা","প্রযুক্তি","রান্না","খেলাধুলা","নাটক","খবর"];
+let key = API_KEY, cat = "সব", query = "", token = "", items = [];
+try { key = key || localStorage.getItem("yt_key") || ""; const th = localStorage.getItem("yt_theme"); if (th) document.documentElement.dataset.theme = th; } catch (e) {}
+
+const dec = s => { const t = document.createElement("textarea"); t.innerHTML = s; return t.value; };
+const esc = s => dec(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const nf = new Intl.NumberFormat("bn-BD", {notation: "compact"});
+const rtf = new Intl.RelativeTimeFormat("bn", {numeric: "auto"});
+const bn = n => String(n).replace(/\d/g, d => "০১২৩৪৫৬৭৮৯"[d]);
+function ago(d) {
+  const s = (new Date(d) - Date.now()) / 1000, u = [["year",31536000],["month",2592000],["week",604800],["day",86400],["hour",3600],["minute",60]];
+  for (const [n, v] of u) if (Math.abs(s) >= v) return rtf.format(Math.round(s / v), n);
+  return "এইমাত্র";
+}
+function dur(iso) {
+  const m = /PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/.exec(iso || ""); if (!m) return "";
+  const h = +m[1] || 0, mi = +m[2] || 0, se = +m[3] || 0, p = n => String(n).padStart(2, "0");
+  return bn(h ? `${h}:${p(mi)}:${p(se)}` : `${mi}:${p(se)}`);
+}
+async function api(path, params) {
+  const u = new URL("https://www.googleapis.com/youtube/v3/" + path);
+  Object.entries({...params, key}).forEach(([k, v]) => v !== "" && v != null && u.searchParams.set(k, v));
+  const r = await fetch(u); const j = await r.json();
+  if (!r.ok) throw new Error(j.error && j.error.message || "অনুরোধ ব্যর্থ হয়েছে");
+  return j;
+}
+function keyBox(note) {
+  $("#out").innerHTML = `<div class="key"><b>YouTube API key দিন</b><br>${note || ""}<input id="ki" placeholder="AIza..." autocomplete="off"><button id="ks">সংরক্ষণ</button></div>`;
+  $("#ks").onclick = () => { key = $("#ki").value.trim(); try { localStorage.setItem("yt_key", key); } catch (e) {} load(true); };
+}
+function draw(append) {
+  if (!items.length) { $("#out").innerHTML = `<div class="msg">কোনো ভিডিও পাওয়া যায়নি</div>`; return; }
+  $("#out").innerHTML = `<div class="grid">` + items.map((v, i) => `<div class="card" data-i="${i}"><div class="thumb"><img loading="lazy" src="${v.th}" alt=""><span class="dur">${v.du}</span></div><div class="t">${esc(v.t)}</div><div class="s">${esc(v.ch)}<br>${v.vw} · ${v.d}</div></div>`).join("") + `</div>` + (token ? `<button class="more" id="more">আরও দেখুন</button>` : "");
+}
+async function load(reset) {
+  if (!key) return keyBox("Google Cloud Console থেকে পাওয়া key এখানে বসান।");
+  if (reset) { items = []; token = ""; $("#out").innerHTML = `<div class="msg">লোড হচ্ছে…</div>`; }
+  try {
+    const term = (query || (cat === "সব" ? "" : cat)).trim();
+    const r = term
+      ? await api("search", {part: "snippet", type: "video", maxResults: 24, q: term, pageToken: token, regionCode: "BD", safeSearch: "moderate"})
+      : await api("videos", {part: "snippet,contentDetails,statistics", chart: "mostPopular", regionCode: "BD", maxResults: 24, pageToken: token});
+    token = r.nextPageToken || "";
+    let det = {};
+    if (term) {
+      const ids = r.items.map(x => x.id.videoId).filter(Boolean).join(",");
+      if (ids) (await api("videos", {part: "contentDetails,statistics", id: ids})).items.forEach(x => det[x.id] = x);
+    }
+    r.items.forEach(x => {
+      const id = term ? x.id.videoId : x.id, s = x.snippet, d = term ? det[id] : x; if (!id) return;
+      items.push({id, t: s.title, ch: s.channelTitle, desc: s.description, th: (s.thumbnails.medium || s.thumbnails.default).url,
+        du: d ? dur(d.contentDetails.duration) : "", vw: d && d.statistics.viewCount ? nf.format(d.statistics.viewCount) + " বার দেখা" : "", d: ago(s.publishedAt)});
+    });
+    draw();
+  } catch (e) {
+    if (/key|API/i.test(e.message)) keyBox(`<span style="color:#e11d2e">${esc(e.message)}</span>`);
+    else $("#out").innerHTML = `<div class="msg">${esc(e.message)}</div>`;
+  }
+}
+function chips() { $("#chips").innerHTML = CATS.map(c => `<button class="chip ${c === cat ? "on" : ""}" data-c="${c}">${c}</button>`).join(""); }
+function open(i) {
+  const v = items[i];
+  $("#pl").innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
+  $("#mt").textContent = dec(v.t); $("#ms").textContent = `${dec(v.ch)} · ${v.vw} · ${v.d}`; $("#md").textContent = v.desc;
+  $("#modal").classList.add("open"); document.body.style.overflow = "hidden";
+}
+function shut() { $("#modal").classList.remove("open"); $("#pl").innerHTML = ""; document.body.style.overflow = ""; }
+$("#out").onclick = e => {
+  if (e.target.id === "more") return load(false);
+  const c = e.target.closest(".card"); if (c) open(+c.dataset.i);
+};
+$("#chips").onclick = e => { const c = e.target.closest(".chip"); if (!c) return; cat = c.dataset.c; query = ""; $("#q").value = ""; chips(); load(true); };
+$("#sf").onsubmit = e => { e.preventDefault(); query = $("#q").value; cat = "সব"; chips(); load(true); };
+$("#home").onclick = () => { query = ""; cat = "সব"; $("#q").value = ""; chips(); load(true); };
+$("#key").onclick = () => keyBox("নতুন key বসালে আগেরটি বদলে যাবে।");
+$("#theme").onclick = () => { const t = getComputedStyle(document.documentElement).colorScheme === "dark" ? "light" : "dark"; document.documentElement.dataset.theme = t; try { localStorage.setItem("yt_theme", t); } catch (e) {} };
+$("#close").onclick = shut;
+$("#modal").onclick = e => { if (e.target.id === "modal") shut(); };
+document.onkeydown = e => { if (e.key === "Escape") shut(); };
+chips(); load(true);
+</script>
+</body>
+</html>
