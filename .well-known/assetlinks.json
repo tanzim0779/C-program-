@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.github.tanzim0779.twa",
+      "sha256_cert_fingerprints": [
+        "75:A7:3E:0A:31:78:40:80:70:E2:ED:1B:2F:E9:EE:DA:F9:19:BE:AE:5A:B0:70:96:66:B0:A2:71:F6:6E:CD:C1"
+      ]
+    }
+  }
+]
