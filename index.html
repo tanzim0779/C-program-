@@ -455,5 +455,34 @@ render();addEventListener('load',()=>setTimeout(()=>$('#splash').classList.add('
 setTimeout(()=>$('#splash').classList.add('off'),2500);
 })();
 </script>
+
+
+
+
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker
+        .register("/C-program-/sw.js", {
+          scope: "/C-program-/"
+        })
+        .then((registration) => {
+          console.log("Service Worker registered:", registration.scope);
+        })
+        .catch((error) => {
+          console.error(
+            "Service Worker registration failed:",
+            error
+          );
+        });
+    });
+  }
+</script>
+</body>
+</html>
+
+
+
+  
 </body>
 </html>
